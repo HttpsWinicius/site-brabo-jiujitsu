@@ -9,3 +9,20 @@ background: white;
 body {
     background: #F5F5F5;
 }
+
+.paragrafo-historia {
+    text-align: justify;
+}
+
+.negrito-historia {
+    font-weight: bold;
+}
+
+.img-conquista {
+    width: 30px;
+}
+
+.faixa-imagem {
+    width: 80px;
+    background-color: #f4463a;
+}
