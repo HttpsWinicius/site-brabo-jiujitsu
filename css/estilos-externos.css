@@ -3,7 +3,7 @@
 }
 
 #mainNav{
-background: white;
+    background: white;
 }
 
 body {
@@ -55,4 +55,11 @@ li {
 
 a {
     text-decoration: none;
+}
+
+.aluno-faixa-preta {
+    background: url(../assets/img/banner-faixa-preta.png) no-repeat center center;
+    color: white;
+    box-sizing: content-box;
+    width: 100%;
 }
