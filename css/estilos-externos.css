@@ -1,0 +1,89 @@
+.nav-link, .navbar-brand {
+    color: black !important;
+}
+
+#mainNav{
+    background: white;
+}
+
+body {
+    background: #F5F5F5;
+}
+.paragrafo-historia {
+    text-align: justify;
+}
+
+.negrito-historia {
+    font-weight: bold;
+}
+
+.img-conquista {
+    width: 30px;
+}
+
+.faixa-imagem {
+    width: 80px;
+    background-color: #f4463a;
+}
+.social-part .fa {
+    padding-right:20px;
+}
+
+ul li a {
+    margin-right: 20px;
+}
+
+i {
+    color: #e1192c;
+}
+
+.btn-filiais {
+
+ background-color: #f4464aba;
+ color: white;
+}
+
+ .btn-filiais:hover {
+    box-shadow: 0px 0px 30px #f4464aba;
+    background-color: #f4464aba;
+    color: white;
+} 
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.aluno-faixa-preta {
+    background: url(../assets/img/banner-faixa-preta.png) no-repeat center center;
+    color: white;
+    box-sizing: content-box;
+    width: 100%;
+}
+
+.card-header-title > span {
+    display: block;
+    position: relative;
+}
+.card-header-title > span:hover {
+    cursor: pointer;
+}
+.card-header-title > span:after {
+    content: "\FE3E"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+}
+.card-header-title > span[aria-expanded="true"]:after {
+    content: "\FE3D"; 
+    
+}
+
+
+.texto-italico {
+    font-style: italic;
+}
