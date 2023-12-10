@@ -63,3 +63,27 @@ a {
     box-sizing: content-box;
     width: 100%;
 }
+
+.card-header-title > span {
+    display: block;
+    position: relative;
+}
+.card-header-title > span:hover {
+    cursor: pointer;
+}
+.card-header-title > span:after {
+    content: "\FE3E"; 
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+}
+.card-header-title > span[aria-expanded="true"]:after {
+    content: "\FE3D"; 
+    
+}
+
+
+.texto-italico {
+    font-style: italic;
+}

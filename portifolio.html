@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
@@ -25,23 +25,46 @@
 
 <body>
 
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html"><img src="assets/img/logo-brabo-menu.png" alt="Logo brabo jiu hitsu"></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="/sobre.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/servicos.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/portifolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contato.html">Contact</a></li>
-                </ul>
-            </div>
+ <!-- Navigation-->
+ <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" id="mainNav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <a class="navbar-brand ms-3" href="#page-top"><img src="assets/img/logo-brabo-menu.png" alt="Logo brabo jiu hitsu"></a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Ínicio</a>
+        </li>
+        <li class="nav-item dropdown dmenu">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+         Família Brabo
+        </a>
+        <div class="dropdown-menu sm-menu">
+          <a class="dropdown-item" href="/sobre.html">Sobre</a>
+          <a class="dropdown-item" href="/faixas_pretas.html">Faixas Preta</a>
+          <a class="dropdown-item" href="#">Projeto Brabinho</a>
+          <a class="dropdown-item" href="#">Métodologia Brabo</a>
         </div>
-    </nav>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sobre_esporte.html">Sobre o esporte</a>
+      </li>
+      <li class="nav-item dropdown dmenu">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+         Treinos
+        </a>
+        <div class="dropdown-menu sm-menu">
+          <a class="dropdown-item" href="#">Horários</a>
+          <a class="dropdown-item" href="#">Filiais</a>
+          <a class="dropdown-item" href="#">Campeonatos</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contato</a>
+      </li>
+      </ul>
+<!---FIM NAVIGATION-->
 
 
  <!-- Portfolio-->
@@ -73,6 +96,15 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+    $('.navbar-light .dmenu').hover(function () {
+            $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+        }, function () {
+            $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+        });
+    });
+    </script>
 </body>
 
 </html>
