@@ -9,6 +9,11 @@
 body {
     background: #F5F5F5;
 }
+
+::selection {
+    background-color: #e1192c; /* Cor de fundo quando o texto é selecionado */
+    color: #fff; /* Cor do texto selecionado */
+  }
 .paragrafo-historia {
     text-align: justify;
 }
@@ -86,4 +91,51 @@ a {
 
 .texto-italico {
     font-style: italic;
+}
+
+.unidades_cards {
+    margin-top: 109px;
+}
+
+.unidades_foto_brooklyn_masmorra {
+    height: 250px;
+    width: 100%;
+    background: url(../assets/img/brooklyn_masmorra_fachada.jpg) no-repeat center top;
+    background-size: cover;
+}
+
+.maps-btn {
+    background-color: #e1192c;
+    color: white;
+}
+
+.maps-btn:hover {
+    background-color: #f3081f;
+    color: white;
+    box-shadow: 0 0 50px #ff142bd2;
+}
+
+.unidades_brooklyn_masmorra_insta {
+    margin-right: 0;
+    color: black;
+}
+
+.und-icon-links {
+    margin-right: 5px;
+}
+
+/* Animação pro Box Shadow do Card de Und */
+@keyframes shadowAnimation {
+    0% {
+        box-shadow: 0 0 50px rgba(112, 112, 112, 0.048);
+    }
+
+    100% {
+        box-shadow: 0 0 60px rgba(58, 58, 58, 0.493);
+    }
+  }
+
+.und-brooklyn-masmorra:hover {
+    box-shadow: 0 0 60px rgba(58, 58, 58, 0.493);
+    animation: shadowAnimation .7s;
 }
