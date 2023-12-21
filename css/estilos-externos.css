@@ -162,3 +162,12 @@ a {
 .wpp-link-disabled {
     color: rgb(170, 170, 170);
 }
+
+.mapa_site {
+    height: 180px;
+    width: 450px;
+}
+
+footer {
+    height: 200px;
+}
