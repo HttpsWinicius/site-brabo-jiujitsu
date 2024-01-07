@@ -1,0 +1,266 @@
+.nav-link,
+.navbar-brand {
+  color: black !important;
+}
+
+#mainNav {
+  background: white;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+::selection {
+  background-color: #e1192c; /* Cor de fundo quando o texto é selecionado */
+  color: #fff; /* Cor do texto selecionado */
+}
+.paragrafo-historia {
+  text-align: justify;
+}
+
+.negrito-historia {
+  font-weight: bold;
+}
+
+.img-conquista {
+  width: 30px;
+}
+
+.faixa-imagem {
+  width: 80px;
+  background-color: #f4463a;
+}
+.social-part .fa {
+  padding-right: 20px;
+}
+
+ul li a {
+  margin-right: 20px;
+}
+
+i {
+  color: #e1192c;
+}
+
+.btn-filiais {
+  background-color: #f4464aba;
+  color: white;
+}
+
+.btn-filiais:hover {
+  box-shadow: 0px 0px 30px #f4464aba;
+  background-color: #f4464aba;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.aluno-faixa-preta {
+  background: url(../assets/img/banner-faixa-preta.png) no-repeat center center;
+  color: white;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+.card-header-title > span {
+  display: block;
+  position: relative;
+}
+.card-header-title > span:hover {
+  cursor: pointer;
+}
+.card-header-title > span:after {
+  content: "\FE3E";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+}
+.card-header-title > span[aria-expanded="true"]:after {
+  content: "\FE3D";
+}
+
+.texto-italico {
+  font-style: italic;
+}
+
+.unidades_cards {
+  margin-top: 109px;
+}
+
+.unidades_foto_brooklyn_masmorra {
+  height: 250px;
+  width: 100%;
+  background: url(../assets/img/brooklyn_masmorra_fachada.jpg) no-repeat center
+    top;
+  background-size: cover;
+}
+.unidades_foto_brooklyn_encSol {
+  height: 250px;
+  width: 100%;
+  background: url(../assets/img/brooklyn_encosta_fachada.jpg) no-repeat center
+    top;
+  background-size: cover;
+}
+
+.unidades_foto_degraus {
+  height: 250px;
+  width: 100%;
+  background: url(../assets/img/escola_degraus.jpg) no-repeat center top;
+  background-size: cover;
+}
+
+.maps-btn {
+  background-color: #e1192c;
+  color: white;
+}
+
+.maps-btn:hover {
+  background-color: #f3081f;
+  color: white;
+  box-shadow: 0 0 50px #ff142bd2;
+}
+
+.unidades_brooklyn_masmorra_insta {
+  margin-right: 0;
+  color: black;
+}
+
+.und-icon-links {
+  margin-right: 5px;
+}
+
+/* Animação pro Box Shadow do Card de Und */
+@keyframes shadowAnimation {
+  0% {
+    box-shadow: 0 0 50px rgba(112, 112, 112, 0.048);
+  }
+
+  100% {
+    box-shadow: 0 0 60px rgba(58, 58, 58, 0.493);
+  }
+}
+
+.und-brooklyn-masmorra:hover {
+  box-shadow: 0 0 60px rgba(58, 58, 58, 0.493);
+  animation: shadowAnimation 0.7s;
+}
+
+.wpp-link {
+  text-decoration: none;
+  color: black;
+}
+
+.wpp-link-disabled {
+  color: rgb(170, 170, 170);
+}
+
+.mapa_site {
+  height: 180px;
+  width: 450px;
+}
+
+.faixa-metod {
+  cursor: pointer;
+}
+
+.chevron_icon {
+  color: black;
+}
+
+.fx_branca {
+  background-color: white;
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_cinza {
+  color: white;
+  background-color: rgb(128, 128, 128);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_amarela {
+  color: white;
+  background-color: rgb(255, 201, 34);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_laranja {
+  color: white;
+  background-color: rgb(255, 135, 12);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_verde {
+  color: white;
+  background-color: rgb(33, 165, 18);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_azul {
+  color: white;
+  background-color: rgb(43, 43, 197);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_roxa {
+  color: white;
+  background-color: rgb(128, 43, 197);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_marrom {
+  color: white;
+  background-color: rgb(105, 72, 35);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.fx_preta {
+  color: white;
+  background-color: rgb(51, 51, 51);
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+}
+
+.subtitle_brabinho {
+  color: rgb(129, 129, 129);
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(31, 31, 31);
+}
+
+.mapa_site {
+  margin: 50px 0;
+}
+
+.mapa_site > h2 {
+  color: white;
+}
+
+.mapa_site > li, .mapa_site > li > a {
+  color: white;
+}
+
+.mapa_site > li > a:hover {
+  text-decoration: underline;
+}
