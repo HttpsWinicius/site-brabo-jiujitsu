@@ -171,3 +171,49 @@ a {
 footer {
     height: 200px;
 }
+
+.faixa-metod {
+    cursor: pointer;
+}
+
+.chevron_icon {
+    color: black;
+}
+
+.fx_branca {
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+
+.fx_azul {
+    color: white;
+    background-color: rgb(43, 43, 197);
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+
+.fx_roxa {
+    color: white;
+    background-color: rgb(128, 43, 197);
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+
+.fx_marrom {
+    color: white;
+    background-color: rgb(105, 72, 35);
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+
+.fx_preta {
+    color: white;
+    background-color: rgb(51, 51, 51);
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+
+.subtitle_brabinho {
+    color: rgb(129, 129, 129);
+}
