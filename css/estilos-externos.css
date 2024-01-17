@@ -257,10 +257,15 @@ footer {
   color: white;
 }
 
-.mapa_site > li, .mapa_site > li > a {
+.mapa_site > li,
+.mapa_site > li > a {
   color: white;
 }
 
 .mapa_site > li > a:hover {
   text-decoration: underline;
+}
+
+#btnCopi {
+  cursor: pointer;
 }
