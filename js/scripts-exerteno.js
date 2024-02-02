@@ -63,20 +63,12 @@ function exibeMetodologias(metodologia) {
     if (metodologia.value == "jj_adulto") {
         document.querySelector('.metodologia_adulto').style.display = "block";
         document.querySelector('.metodologia_infantil').style.display = "none";
-        document.querySelector('.metodologia_feminino').style.display = "none";
-
-    } else if (metodologia.value == "jj_feminino") {
-        document.querySelector('.metodologia_feminino').style.display = "block";
-        document.querySelector('.metodologia_infantil').style.display = "none";
-        document.querySelector('.metodologia_adulto').style.display = "none";
 
     } else if (metodologia.value == "jj_infantil") {
         document.querySelector('.metodologia_adulto').style.display = "none";
         document.querySelector('.metodologia_infantil').style.display = "block";
-        document.querySelector('.metodologia_feminino').style.display = "none";
     } else {
         document.querySelector('.metodologia_adulto').style.display = "none";
         document.querySelector('.metodologia_infantil').style.display = "none";
-        document.querySelector('.metodologia_feminino').style.display = "none";
     }
 }
