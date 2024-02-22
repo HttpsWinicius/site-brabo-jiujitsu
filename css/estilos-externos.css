@@ -96,24 +96,50 @@ a {
 }
 
 .unidades_foto_brooklyn_masmorra {
-  height: 250px;
+  height: 300px;
   width: 100%;
-  background: url(../assets/img/imgs-brabo/entrada-brabo-jiujitsu-cascata.jpeg)
-    no-repeat center top;
+  background: url(../assets/img/unidade_cascatinha.jpeg) no-repeat center top;
   background-size: cover;
 }
 .unidades_foto_brooklyn_encSol {
-  height: 250px;
+  height: 300px;
   width: 100%;
-  background: url(../assets/img/brooklyn_encosta_fachada.jpg) no-repeat center
-    top;
+  background: url(../assets/img/unidade_encosta_sol.jpeg) no-repeat center top;
   background-size: cover;
 }
 
 .unidades_foto_degraus {
-  height: 250px;
+  height: 300px;
   width: 100%;
-  background: url(../assets/img/escola_degraus.jpg) no-repeat center top;
+  background: url(../assets/img/unidade_degraus.jpeg) no-repeat center top;
+  background-size: cover;
+}
+
+.unidades_foto_san_house {
+  height: 330px;
+  width: 100%;
+  background: url(../assets/img/unidade_san_house.jpeg) no-repeat center top;
+  background-size: cover;
+}
+
+.unidades_foto_maragon {
+  height: 300px;
+  width: 100%;
+  background: url(../assets/img/unidade_marangon.jpeg) no-repeat center top;
+  background-size: cover;
+}
+
+.unidades_foto_simao_pereira {
+  height: 300px;
+  width: 100%;
+  background: url(../assets/img/unidade_simao_pereira.jpeg) no-repeat center top;
+  background-size: cover;
+}
+
+.unidades_foto_igreja {
+  height: 300px;
+  width: 100%;
+  background: url(../assets/img/unidade_igreja.jpeg) no-repeat center top;
   background-size: cover;
 }
 
