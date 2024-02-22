@@ -143,6 +143,14 @@ a {
   background-size: cover;
 }
 
+.unidades_foto_igreja_ceramica {
+  height: 330px;
+  width: 100%;
+  background: url(../assets/img/imgs-brabo/prof-jodelis.jpg) no-repeat center
+    top;
+  background-size: cover;
+}
+
 .maps-btn {
   background-color: #e1192c;
   color: white;
