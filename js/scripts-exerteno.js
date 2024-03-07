@@ -7,6 +7,8 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_san_house").style.display = "none";
         document.getElementById("horario_igreja").style.display = "none";
         document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
     } else if (filial.value == "BM_ENCOSTA_DO_SOL") {
         document.getElementById("horario_bm_encosta_sol").style.display = "block";
         document.getElementById("texto_cascatinha").style.display = "block";
@@ -15,6 +17,8 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_san_house").style.display = "none";
         document.getElementById("horario_igreja").style.display = "none";
         document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
     } else if (filial.value == "SIMAO_PEREIRA") {
         document.getElementById("horario_simao_pereira").style.display = "block";
         document.getElementById("texto_cascatinha").style.display = "block";
@@ -23,6 +27,8 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_san_house").style.display = "none";
         document.getElementById("horario_igreja").style.display = "none";
         document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
     } else if (filial.value == "SDE") {
         document.getElementById("horario_sistema_degraus").style.display = "block";
         document.getElementById("texto_cascatinha").style.display = "block";
@@ -31,6 +37,8 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_simao_pereira").style.display = "none";
         document.getElementById("horario_san_house").style.display = "none";
         document.getElementById("horario_igreja").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
     } else if (filial.value == "IEQ") {
         document.getElementById("horario_igreja").style.display = "block";
         document.getElementById("texto_cascatinha").style.display = "block";
@@ -39,6 +47,8 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_simao_pereira").style.display = "none";
         document.getElementById("horario_san_house").style.display = "none";
         document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
     } else if (filial.value == "SHJF") {
         document.getElementById("horario_san_house").style.display = "block";
         document.getElementById("texto_cascatinha").style.display = "block";
@@ -47,6 +57,30 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_simao_pereira").style.display = "none";
         document.getElementById("horario_igreja").style.display = "none";
         document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
+    } else if (filial.value == "HIM") {
+        document.getElementById("horario_iurimaggi").style.display = "block";
+        document.getElementById("texto_cascatinha").style.display = "block";
+        document.getElementById("horario_bm_cascatinha").style.display = "none";
+        document.getElementById("horario_bm_encosta_sol").style.display = "none";
+        document.getElementById("horario_simao_pereira").style.display = "none";
+        document.getElementById("horario_san_house").style.display = "none";
+        document.getElementById("horario_igreja").style.display = "none";
+        document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("texto_cascatinha").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
+    } else if (filial.value == "IPF") {
+        document.getElementById("horario_igreja_palavra_fe").style.display = "block";
+        document.getElementById("texto_cascatinha").style.display = "block";
+        document.getElementById("horario_bm_cascatinha").style.display = "none";
+        document.getElementById("horario_bm_encosta_sol").style.display = "none";
+        document.getElementById("horario_simao_pereira").style.display = "none";
+        document.getElementById("horario_san_house").style.display = "none";
+        document.getElementById("horario_igreja").style.display = "none";
+        document.getElementById("horario_sistema_degraus").style.display = "none";
+        document.getElementById("texto_cascatinha").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
     } else {
         document.getElementById("horario_bm_cascatinha").style.display = "none";
         document.getElementById("horario_bm_encosta_sol").style.display = "none";
@@ -55,6 +89,8 @@ function mostrarHorarios(filial) {
         document.getElementById("horario_igreja").style.display = "none";
         document.getElementById("horario_sistema_degraus").style.display = "none";
         document.getElementById("texto_cascatinha").style.display = "none";
+        document.getElementById("horario_iurimaggi").style.display = "none";
+        document.getElementById("horario_igreja_palavra_fe").style.display = "none";
     }
 }
 
