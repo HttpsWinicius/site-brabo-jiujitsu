@@ -55,7 +55,7 @@ function exibeMetodologias(metodologia) {
 < !--Você pode adicionar ou remover alunos facilmente neste array-- >
 */
 
-//-Array de alunos
+//-Array de faixa preta
 const alunos = [
     { nome: "Ramon Medeiros", dataGraduacao: "Dezembro de 2013" },
     { nome: "Pedro Mazzoni", dataGraduacao: "Julho de 2017" },
@@ -83,4 +83,44 @@ function exibirAlunos() {
                 </div>
             `);
     });
+}
+
+//PROFESSORES
+// Array de objetos representando os professores
+// Função para gerar os elementos dos professores
+function gerarProfessores() {
+    // Array de objetos representando os professores
+    const professores = [
+        { nome: "Jackson Silvério", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-jackson.jpeg" },
+        { nome: "Maxuel Andrade", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
+        { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin.jpeg" },
+        { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna.jpeg" },
+        { nome: "Lucas Santos", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-lucas-santos.jpeg" },
+        { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet.jpeg" },
+        { nome: "Iuri Maggi", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-iuri.jpeg" },
+        { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
+        { nome: "Yasmin Zamblute", faixa: "Faixa Roxa", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
+    ];
+
+    const container = document.getElementById("professores-container");
+
+    // Função para criar um elemento HTML para cada professor
+    function criarElementoProfessor(professor) {
+        const div = document.createElement("div");
+        div.className = "card d-flex";
+        div.style.width = "18rem";
+
+        div.innerHTML = `
+        <img class="card-img-top" src="${professor.imagem}" alt="Card image cap" />
+        <div class="card-body">
+          <h5>${professor.nome}</h5>
+          <p class="card-text">${professor.faixa}</p>
+        </div>
+      `;
+
+        container.appendChild(div);
+    }
+
+    // Chamando a função para criar os elementos HTML dos professores
+    professores.forEach(criarElementoProfessor);
 }
