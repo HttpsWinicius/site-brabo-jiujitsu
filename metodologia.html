@@ -43,23 +43,33 @@
     />
     <!--Scripts para topdown automatico do navigation-->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> <!-- Essencial para o funcionamento do dropdown do nav -->
     <script src="js/scripts.js"></script>
     <!--Scripts externo-->
     <script src="js/scripts-externo.js"></script>
 
 </head>
 
-<body>
+<body class="d-flex flex-column justify-content-between">
   <!-- Navigation-->
-  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" id="mainNav">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="mainNav">
+    <button 
+      class="navbar-toggler ms-3" 
+      type="button" 
+      data-toggle="collapse" 
+      data-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <a class="navbar-brand ms-3" href="#page-top"><img src="assets/img/logo-brabo-menu.png"
-          alt="Logo brabo jiu hitsu" /></a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <a class="navbar-brand ms-3 p-0" href="#page-top">
+      <img src="assets/img/logo-brabo-menu.png" alt="Logo brabo jiu hitsu" />
+    </a>
+    <div
+      class="collapse navbar-collapse align-items-start align-items-md-center justify-content-between flex-column flex-md-row flex-nowrap p-3"
+      id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/index.html">Ínicio</a>
         </li>
@@ -83,21 +93,21 @@
           <div class="dropdown-menu sm-menu">
             <a class="dropdown-item" href="horario_brabo.html">Horários</a>
             <a class="dropdown-item" href="/filiais_brabo.html">Filiais</a>
+            <a class="dropdown-item" href="#">Campeonatos</a>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contato.html">Contato</a>
         </li>
       </ul>
-    </div>
-
-    <div class="social-part me-3">
-      <a href="https://www.facebook.com/brabojiujitsu/" target="_blank"><i class="fa fa-facebook fa-lg"
-          aria-hidden="true"></i></a>
-      <a href="https://www.youtube.com/@BRABOJiuJitsu/videos" target="_blank"><i class="fa fa-youtube-play fa-lg"
-          aria-hidden="true"></i></a>
-      <a href="https://www.instagram.com/brabojiujitsu/" target="_blank"><i class="fa fa-instagram fa-lg"
-          aria-hidden="true"></i></a>
+      <div class="social-part">
+        <a href="https://www.facebook.com/brabojiujitsu/" target="_blank"><i class="fa fa-facebook fa-lg"
+            aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/@BRABOJiuJitsu/videos" target="_blank"><i class="fa fa-youtube-play fa-lg"
+            aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/brabojiujitsu/" target="_blank"><i class="fa fa-instagram fa-lg"
+            aria-hidden="true"></i></a>
+      </div>
     </div>
   </nav>
   <!---FIM NAVIGATION-->
