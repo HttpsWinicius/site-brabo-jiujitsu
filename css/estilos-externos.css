@@ -316,3 +316,18 @@ footer {
 #btnCopi {
   cursor: pointer;
 }
+
+
+@media (max-width: 576px) {
+  .tabela_de_horarios {
+    max-width: 400px;
+    font-size: .625em;
+    font-weight: 700;
+  }
+
+  tr > th, tr > td {
+    padding: 3px !important;
+    margin: 0 !important;
+  }
+
+}
