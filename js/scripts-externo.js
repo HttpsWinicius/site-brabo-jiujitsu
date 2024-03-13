@@ -1,3 +1,4 @@
+
 function mostrarHorarios(filial) {
     const elementosExibir = {
         "BM_CASCATINHA": ["texto_cascatinha", "horario_bm_cascatinha"],
@@ -58,19 +59,19 @@ function exibeMetodologias(metodologia) {
 //-Array de faixa preta
 const alunos = [
     { nome: "Ramon Medeiros", dataGraduacao: "Dezembro de 2013" },
-    { nome: "1&#176; - Pedro Mazzoni", dataGraduacao: "Julho de 2017" },
-    { nome: "2&#176; - Jacksson Silvério", dataGraduacao: "Dezembro de 2018" },
-    { nome: "3&#176; - Cláudio Libra", dataGraduacao: "Julho de 2019" },
-    { nome: "4&#176; - Guilherme Carias", dataGraduacao: "Dezembro de 2019" },
-    { nome: "5&#176; - Jorge Luis", dataGraduacao: "Dezembro de 2019" },
-    { nome: "6&#176; - Felipe Marinho", dataGraduacao: "Dezembro de 2019" },
-    { nome: "7&#176; - Wellington Soares", dataGraduacao: "Dezembro de 2020" },
-    { nome: "8&#176; - Elerson Moreira", dataGraduacao: "Dezembro de 2020" },
-    { nome: "9&#176; - Lorran Fernando", dataGraduacao: "Dezembro de 2021" },
-    { nome: "10&#176; - Ricardo Bizotti", dataGraduacao: "Dezembro de 2022" },
-    { nome: "11&#176; - Rafael Carapinha", dataGraduacao: "Dezembro de 2023" },
-    { nome: "12&#176; - Amanda Debussy", dataGraduacao: "Dezembro de 2023" },
-    { nome: "13&#176; - Cláudio Ferreira", dataGraduacao: "Dezembro de 2023" },
+    { nome: "1&#176;- Pedro Mazzoni", dataGraduacao: "Julho de 2017" },
+    { nome: "2&#176;- Jacksson Silvério", dataGraduacao: "Dezembro de 2018" },
+    { nome: "3&#176;- Cláudio Libra", dataGraduacao: "Julho de 2019" },
+    { nome: "4&#176;- Guilherme Carias", dataGraduacao: "Dezembro de 2019" },
+    { nome: "5&#176;- Jorge Luis", dataGraduacao: "Dezembro de 2019" },
+    { nome: "6&#176;- Felipe Marinho", dataGraduacao: "Dezembro de 2019" },
+    { nome: "7&#176;- Wellington Soares", dataGraduacao: "Dezembro de 2020" },
+    { nome: "8&#176;- Elerson Moreira", dataGraduacao: "Dezembro de 2020" },
+    { nome: "9&#176;- Lorran Fernando", dataGraduacao: "Dezembro de 2021" },
+    { nome: "10&#176;- Ricardo Bizotti", dataGraduacao: "Dezembro de 2022" },
+    { nome: "11&#176;- Rafael Carapinha", dataGraduacao: "Dezembro de 2023" },
+    { nome: "12&#176;- Amanda Debussy", dataGraduacao: "Dezembro de 2023" },
+    { nome: "13&#176;- Cláudio Ferreira", dataGraduacao: "Dezembro de 2023" },
 ];
 
 // Função para exibir os alunos
