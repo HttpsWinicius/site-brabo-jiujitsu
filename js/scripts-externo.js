@@ -58,19 +58,19 @@ function exibeMetodologias(metodologia) {
 //-Array de faixa preta
 const alunos = [
     { nome: "Ramon Medeiros", dataGraduacao: "Dezembro de 2013" },
-    { nome: "1° - Pedro Mazzoni", dataGraduacao: "Julho de 2017" },
-    { nome: "2° - Jacksson Silvério", dataGraduacao: "Dezembro de 2018" },
-    { nome: "3° - Cláudio Libra", dataGraduacao: "Julho de 2019" },
-    { nome: "4° - Guilherme Carias", dataGraduacao: "Dezembro de 2019" },
-    { nome: "5° - Jorge Luis", dataGraduacao: "Dezembro de 2019" },
-    { nome: "6° - Felipe Marinho", dataGraduacao: "Dezembro de 2019" },
-    { nome: "7° - Wellington Soares", dataGraduacao: "Dezembro de 2020" },
-    { nome: "8° - Elerson Moreira", dataGraduacao: "Dezembro de 2020" },
-    { nome: "9° - Lorran Fernando", dataGraduacao: "Dezembro de 2021" },
-    { nome: "10° - Ricardo Bizotti", dataGraduacao: "Dezembro de 2022" },
-    { nome: "11° - Rafael Carapinha", dataGraduacao: "Dezembro de 2023" },
-    { nome: "12° - Amanda Debussy", dataGraduacao: "Dezembro de 2023" },
-    { nome: "13° - Cláudio Ferreira", dataGraduacao: "Dezembro de 2023" },
+    { nome: "1&#176; - Pedro Mazzoni", dataGraduacao: "Julho de 2017" },
+    { nome: "2&#176; - Jacksson Silvério", dataGraduacao: "Dezembro de 2018" },
+    { nome: "3&#176; - Cláudio Libra", dataGraduacao: "Julho de 2019" },
+    { nome: "4&#176; - Guilherme Carias", dataGraduacao: "Dezembro de 2019" },
+    { nome: "5&#176; - Jorge Luis", dataGraduacao: "Dezembro de 2019" },
+    { nome: "6&#176; - Felipe Marinho", dataGraduacao: "Dezembro de 2019" },
+    { nome: "7&#176; - Wellington Soares", dataGraduacao: "Dezembro de 2020" },
+    { nome: "8&#176; - Elerson Moreira", dataGraduacao: "Dezembro de 2020" },
+    { nome: "9&#176; - Lorran Fernando", dataGraduacao: "Dezembro de 2021" },
+    { nome: "10&#176; - Ricardo Bizotti", dataGraduacao: "Dezembro de 2022" },
+    { nome: "11&#176; - Rafael Carapinha", dataGraduacao: "Dezembro de 2023" },
+    { nome: "12&#176; - Amanda Debussy", dataGraduacao: "Dezembro de 2023" },
+    { nome: "13&#176; - Cláudio Ferreira", dataGraduacao: "Dezembro de 2023" },
 ];
 
 // Função para exibir os alunos
@@ -111,7 +111,7 @@ function gerarProfessores() {
         div.style.width = "18rem";
 
         div.innerHTML = `
-        <img class="card-img-top" src="${professor.imagem}" alt="Card image cap" />
+        <img class="card-img-top" src="${professor.imagem}" alt="Card que mostra as fotos dos professores da brabo jiujitsu" />
         <div class="card-body">
           <h5>${professor.nome}</h5>
           <p class="card-text">${professor.faixa}</p>
