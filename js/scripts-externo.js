@@ -1,4 +1,5 @@
 
+header("Content-type: text/javascript");
 function mostrarHorarios(filial) {
     const elementosExibir = {
         "BM_CASCATINHA": ["texto_cascatinha", "horario_bm_cascatinha"],
