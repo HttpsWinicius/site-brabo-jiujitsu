@@ -59,7 +59,7 @@ function exibeMetodologias(metodologia) {
 const alunos = [
     { nome: "Ramon Medeiros", dataGraduacao: "Dezembro de 2013" },
     { nome: "1&#176;- Pedro Mazzoni", dataGraduacao: "Julho de 2017" },
-    { nome: "2&#176;- Jacksson Silvério", dataGraduacao: "Dezembro de 2018" },
+    { nome: "2&#176;- Jackson Silvério", dataGraduacao: "Dezembro de 2018" },
     { nome: "3&#176;- Cláudio Libra", dataGraduacao: "Julho de 2019" },
     { nome: "4&#176;- Guilherme Carias", dataGraduacao: "Dezembro de 2019" },
     { nome: "5&#176;- Jorge Luis", dataGraduacao: "Dezembro de 2019" },
@@ -91,7 +91,7 @@ function exibirAlunos() {
 function gerarProfessores() {
     // Array de objetos representando os professores
     const professores = [
-        { nome: "Jackson Silvério", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-jackson.jpeg" },
+        { nome: "Jackson Silvério", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-jackson.jpeg" },
         { nome: "Maxuel Andrade", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
         { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin.jpeg" },
         { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto.jpeg" },
