@@ -79,16 +79,16 @@ a {
   width: 100%;
 }
 
-.card-header-title>span {
+.card-header-title > span {
   display: block;
   position: relative;
 }
 
-.card-header-title>span:hover {
+.card-header-title > span:hover {
   cursor: pointer;
 }
 
-.card-header-title>span:after {
+.card-header-title > span:after {
   content: "\FE3E";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -96,7 +96,7 @@ a {
   right: 0;
 }
 
-.card-header-title>span[aria-expanded="true"]:after {
+.card-header-title > span[aria-expanded="true"]:after {
   content: "\FE3D";
 }
 
@@ -160,7 +160,7 @@ a {
 .unidades_foto_igreja_ceramica {
   height: 330px;
   width: 100%;
-  background: url(../assets/img/imgs-brabo/prof-jodelis.jpg) no-repeat center top;
+  background: url(../assets/img/unid_igreja_jodelis.jpeg) no-repeat center top;
   background-size: cover;
 }
 
@@ -300,16 +300,16 @@ footer {
   margin: 50px 0;
 }
 
-.mapa_site>h2 {
+.mapa_site > h2 {
   color: white;
 }
 
-.mapa_site>li,
-.mapa_site>li>a {
+.mapa_site > li,
+.mapa_site > li > a {
   color: white;
 }
 
-.mapa_site>li>a:hover {
+.mapa_site > li > a:hover {
   text-decoration: underline;
 }
 
@@ -317,17 +317,16 @@ footer {
   cursor: pointer;
 }
 
-
 @media (max-width: 576px) {
   .tabela_de_horarios {
     max-width: 400px;
-    font-size: .625em;
+    font-size: 0.625em;
     font-weight: 700;
   }
 
-  tr > th, tr > td {
+  tr > th,
+  tr > td {
     padding: 3px !important;
     margin: 0 !important;
   }
-
 }
