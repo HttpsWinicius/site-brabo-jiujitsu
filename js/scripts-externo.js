@@ -91,13 +91,13 @@ function exibirAlunos() {
 function gerarProfessores() {
     // Array de objetos representando os professores
     const professores = [
-        { nome: "Jackson Silvério", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-jackson.jpeg" },
+        { nome: "Jackson Silvério", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-jackson-foto-kimono.jpeg" },
         { nome: "Maxuel Andrade", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
-        { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin.jpeg" },
-        { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto.jpeg" },
-        { nome: "Lucas Santos", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-lucas-santos.jpeg" },
-        { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto.jpeg" },
-        { nome: "Iuri Maggi", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-iuri.jpeg" },
+        { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin-foto-kimono.jpeg" },
+        { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto-kimono.jpeg" },
+        { nome: "Lucas Santos", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-lucas-santos-foto-kimono.jpeg" },
+        { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto-kimono.jpeg" },
+        { nome: "Iuri Maggi", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-iuri-foto-kimono.jpeg" },
         { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
         { nome: "Yasmin Zamblute", faixa: "Faixa Roxa", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
     ];
