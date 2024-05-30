@@ -6,7 +6,6 @@ function mostrarHorarios(filial) {
         "SDE": ["texto_cascatinha", "horario_sistema_degraus"],
         "IEQ": ["texto_cascatinha", "horario_igreja"],
         "SHJF": ["texto_cascatinha", "horario_san_house"],
-        "HIM": ["texto_cascatinha", "horario_iurimaggi"],
         "IPF": ["texto_cascatinha", "horario_igreja_palavra_fe"]
     };
 
@@ -17,7 +16,6 @@ function mostrarHorarios(filial) {
         "horario_sistema_degraus",
         "horario_igreja",
         "horario_san_house",
-        "horario_iurimaggi",
         "horario_igreja_palavra_fe"
     ];
 
@@ -51,8 +49,8 @@ function exibeMetodologias(metodologia) {
 /// faixas pretas
 
 /**Loop para exibir os alunos-- >
-< !--Cada aluno é representado por um objeto com nome e data de graduação-- >
-< !--Você pode adicionar ou remover alunos facilmente neste array-- >
+< !--Cada faixa preta é representado por um objeto com nome e data de graduação-- >
+< !--Você pode adicionar ou remover faixa preta facilmente neste array-- >
 */
 
 //-Array de faixa preta
@@ -92,13 +90,14 @@ function gerarProfessores() {
     // Array de objetos representando os professores
     const professores = [
         { nome: "Jackson Silvério", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-jackson-foto-kimono.jpeg" },
+        { nome: "Claudio Libra", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-claudio-libra-foto.jpeg" },
         { nome: "Maxuel Andrade", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
         { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin-foto-kimono.jpeg" },
         { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto-kimono.jpeg" },
         { nome: "Lucas Santos", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-lucas-santos-foto-kimono.jpeg" },
         { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto-kimono.jpeg" },
-        { nome: "Iuri Maggi", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-iuri-foto-kimono.jpeg" },
         { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
+        { nome: "Breno Inácio", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-breno.jpeg" },
         { nome: "Yasmin Zamblute", faixa: "Faixa Roxa", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
     ];
 
@@ -108,7 +107,7 @@ function gerarProfessores() {
     function criarElementoProfessor(professor) {
         const div = document.createElement("div");
         div.className = "card d-flex";
-        div.style.width = "18rem";
+        div.style.width = "15rem";
 
         div.innerHTML = `
         <img class="card-img-top" src="${professor.imagem}" alt="Card que mostra as fotos dos professores da brabo jiujitsu" />
