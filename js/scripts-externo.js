@@ -69,6 +69,7 @@ const alunos = [
     { nome: "11&#176;- Rafael Carapinha", dataGraduacao: "Dezembro de 2023" },
     { nome: "12&#176;- Amanda Debussy", dataGraduacao: "Dezembro de 2023" },
     { nome: "13&#176;- Cláudio Ferreira", dataGraduacao: "Dezembro de 2023" },
+    { nome: "14&#176;- Lucas Santos", dataGraduacao: "Julho de 2024" },
 ];
 
 // Função para exibir os alunos
@@ -91,13 +92,14 @@ function gerarProfessores() {
     const professores = [
         { nome: "Jackson Silvério", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-jackson-foto-kimono.jpeg" },
         { nome: "Claudio Libra", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-claudio-libra-foto.jpeg" },
-        { nome: "Maxuel Andrade", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
-        { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin-foto-kimono.jpeg" },
         { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto-kimono.jpeg" },
-        { nome: "Lucas Santos", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-lucas-santos-foto-kimono.jpeg" },
+        { nome: "Lucas Santos", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-lucas-santos-foto-kimono.jpeg" },
+        { nome: "Maxuel Fernandes", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
+        { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin-foto-kimono.jpeg" },
         { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto-kimono.jpeg" },
         { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
         { nome: "Breno Inácio", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-breno.jpeg" },
+        { nome: "Wantuil Carcereri", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/favicon-brabo.png" },
         { nome: "Yasmin Zamblute", faixa: "Faixa Roxa", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
     ];
 
