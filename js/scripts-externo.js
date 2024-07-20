@@ -2,6 +2,7 @@ function mostrarHorarios(filial) {
     const elementosExibir = {
         "BM_CASCATINHA": ["texto_cascatinha", "horario_bm_cascatinha"],
         "BM_ENCOSTA_DO_SOL": ["texto_cascatinha", "horario_bm_encosta_sol"],
+        "BM_CENTRO": ["texto_cascatinha", "horario_bm_centro"],
         "SIMAO_PEREIRA": ["texto_cascatinha", "horario_simao_pereira"],
         "SDE": ["texto_cascatinha", "horario_sistema_degraus"],
         "IEQ": ["texto_cascatinha", "horario_igreja"],
@@ -12,6 +13,7 @@ function mostrarHorarios(filial) {
     const elementosOcultar = [
         "horario_bm_cascatinha",
         "horario_bm_encosta_sol",
+        "horario_bm_centro",
         "horario_simao_pereira",
         "horario_sistema_degraus",
         "horario_igreja",
@@ -99,7 +101,7 @@ function gerarProfessores() {
         { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto-kimono.jpeg" },
         { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
         { nome: "Breno Inácio", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-breno.jpeg" },
-        { nome: "Wantuil Carcereri", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/favicon-brabo.png" },
+        { nome: "Wantuil Carcereri", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-wantuil.jpeg" },
         { nome: "Yasmin Zamblute", faixa: "Faixa Roxa", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
     ];
 

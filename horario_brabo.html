@@ -48,7 +48,8 @@
     <!-- Essencial para o funcionamento do dropdown do nav -->
     <script src="js/scripts.js?v=4"></script>
     <!--Scripts externo-->
-    <script src="js/scripts-externo.js?v=4"></script>
+    <script src="js/scripts-externo.js?v=5"></script>
+    <script src="js/scripts-horarios.js?v=1"></script>
   </head>
 
   <body id="page-top" class="d-flex flex-column justify-content-between">
@@ -165,28 +166,27 @@
                 <option value="BM_ENCOSTA_DO_SOL">
                   Brooklyn Masmorra Encosta do Sol
                 </option>
+                <option value="BM_CENTRO">Brooklyn Masmorra Centro</option>
                 <option value="SIMAO_PEREIRA">
                   Brooklyn Masmorra Simão Pereira
                 </option>
+                <option value="SHJF">San House JF</option>
                 <option value="SDE">Sistema Degraus de Ensino</option>
                 <option value="IEQ">Igreja do Evangelho Quadrangular</option>
-                <option value="SHJF">San House JF</option>
                 <option value="IPF">Igreja Palavra da Fé</option>
               </select>
-              <!--HORARIO CASCATINHA-->
               <p
                 class="mb-6 mt-2 lh-lg paragrafo-historia"
-                id="texto_cascatinha"
+                id="texto_filial"
                 style="display: none"
               >
                 Confira abaixo os horários de treino da filial e
                 <a href="/filiais_brabo.html">consulte o endereço.</a>
               </p>
-              <div class="table-responsive{-sm|-md|-lg|-xl} tabela_de_horarios">
+              <div class="table-responsive tabela_de_horarios">
                 <table
                   class="table table-bordered table-hover table-sm table-striped mt-4"
-                  name="horario_bm_cascatinha"
-                  id="horario_bm_cascatinha"
+                  id="horario_tabela"
                   style="display: none"
                 >
                   <thead>
@@ -200,427 +200,17 @@
                       <th scope="col">Sábado</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">07:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">09:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Infantil 1</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Infantil 1</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">10:15</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">11:00</th>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">11:15</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>NoGI (combate)</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">17:00</th>
-                      <td>Jiu-Jitsu Infantil 1 e 2</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Infantil 1 e 2</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>NoGI</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:15</th>
-                      <td></td>
-                      <td>Jiu-Jitsu Infantil 2</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Infantil 2</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:30</th>
-                      <td>Jiu-Jitsu Feminino</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Feminino</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:30</th>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">20:00</th>
-                      <td>NoGI</td>
-                      <td></td>
-                      <td>NoGI</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">20:30</th>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                  <tbody id="horario_corpo">
+                    <!-- Horários irão aparecer aqui -->
                   </tbody>
                 </table>
-                <!--HORARIO CASCATINHA FIM-->
-
-                <!--HORARIO ENCOSTA DO SOL-->
-                <table
-                  class="table table-bordered table-hover table-striped table-sm mt-4"
-                  name="horario_bm_encosta_sol"
-                  id="horario_bm_encosta_sol"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">09:00</th>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">15:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:00</th>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:40</th>
-                      <td></td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">20:30</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO ENCOSTA DO SOL FIM-->
-
-                <!--HORARIO SIMAO PEREIRA-->
-                <table
-                  class="table table-bordered table-hover table-striped table-sm mt-4"
-                  name="horario_simao_pereira"
-                  id="horario_simao_pereira"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">17:30</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO SIMAO PEREIRA FIM-->
-
-                <!--HORARIO SAN HOUSE-->
-                <table
-                  class="table table-bordered table-hover table-sm table-striped mt-4"
-                  name="horario_san_house"
-                  id="horario_san_house"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">07:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">20:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO SAN HOUSE FIM-->
-                <table
-                  class="table table-bordered table-hover table-striped table-sm mt-4"
-                  name="horario_simao_pereira"
-                  id="horario_simao_pereira"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">17:30</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO SIMAO PEREIRA FIM-->
-
-                <!--HORARIO Sistema Degraus de ensino-->
-                <table
-                  class="table table-bordered table-hover table-sm table-striped mt-4"
-                  name="horario_sistema_degraus"
-                  id="horario_sistema_degraus"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">17:40</th>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td></td>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO Sistema Degraus de ensino FIM-->
-
-                <!--HORARIO IGREJA-->
-                <table
-                  class="table table-bordered table-hover table-sm table-striped mt-4"
-                  name="horario_igreja"
-                  id="horario_igreja"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>Jiu-Jitsu Infantil</td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO IGREJA FIM-->
-
-                <!--HORARIO Igreja Palavra da Fé-->
-                <table
-                  class="table table-bordered table-hover table-sm table-striped mt-4"
-                  name="horario_igreja_palavra_fe"
-                  id="horario_igreja_palavra_fe"
-                  style="display: none"
-                >
-                  <thead>
-                    <tr class="table-danger">
-                      <th scope="col">Horários</th>
-                      <th scope="col">Segunda-Feira</th>
-                      <th scope="col">Terça-Feira</th>
-                      <th scope="col">Quarta-Feira</th>
-                      <th scope="col">Quinta-Feira</th>
-                      <th scope="col">Sexta-Feira</th>
-                      <th scope="col">Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">19:30</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">20:00</th>
-                      <td>Jiu-Jitsu Adulto</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!--HORARIO Igreja Palavra da Fé-->
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <!-- HORARIOS FIM -->
 
     <!-- Footer -->
 

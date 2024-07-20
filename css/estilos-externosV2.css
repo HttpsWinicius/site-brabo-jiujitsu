@@ -122,6 +122,13 @@ a {
   background-size: cover;
 }
 
+.unidades_foto_brooklyn_centro {
+  height: 300px;
+  width: 100%;
+  background: url(../assets/img/unidade_centro.jpeg) no-repeat center top;
+  background-size: cover;
+}
+
 .unidades_foto_degraus {
   height: 300px;
   width: 100%;
