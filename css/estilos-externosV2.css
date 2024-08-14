@@ -109,66 +109,104 @@ a {
 }
 
 .unidades_foto_brooklyn_masmorra {
-  height: 300px;
+  background: url(../assets/img/unidade_cascatinha.jpeg);
+  border: 5px solid #ffcc29; /* Opcional: borda ao redor da imagem */
+}
+
+.gympass-container {
+  position: absolute;
+  top: 10px; /* Ajuste a posição vertical conforme necessário */
+  right: 10px; /* Ajuste a posição horizontal conforme necessário */
+}
+
+.gympass-logo {
+  max-width: 100px; /* Tamanho máximo da imagem */
   width: 100%;
-  background: url(../assets/img/unidade_cascatinha.jpeg) no-repeat center top;
-  background-size: cover;
+  height: auto;
+}
+
+.gympass-logo {
+  max-width: 90px; /* Tamanho máximo da imagem */
+  width: 100%;
+  height: auto;
 }
 
 .unidades_foto_brooklyn_encSol {
-  height: 300px;
-  width: 100%;
-  background: url(../assets/img/unidade_encosta_sol.jpeg) no-repeat center top;
-  background-size: cover;
+  background: url(../assets/img/unidade_encosta_sol.jpeg);
+  border: 5px solid #7f7f7f; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_brooklyn_centro {
-  height: 300px;
-  width: 100%;
-  background: url(../assets/img/unidade_centro.jpeg) no-repeat center top;
-  background-size: cover;
+  background: url(../assets/img/unidade_centro.jpeg);
+  border: 5px solid #3e3f99; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_degraus {
-  height: 300px;
-  width: 100%;
-  background: url(../assets/img/unidade_degraus.jpeg) no-repeat center top;
-  background-size: cover;
+  background: url(../assets/img/unidade_degraus.jpeg);
+  border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_san_house {
-  height: 330px;
-  width: 100%;
-  background: url(../assets/img/unidade_san_house.jpeg) no-repeat center top;
-  background-size: cover;
-}
-
-.unidades_foto_maragon {
-  height: 300px;
-  width: 100%;
-  background: url(../assets/img/unidade_marangon.jpeg) no-repeat center top;
-  background-size: cover;
+  background: url(../assets/img/unidade_san_house.jpeg);
+  border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_simao_pereira {
-  height: 300px;
-  width: 100%;
-  background: url(../assets/img/unidade_simao_pereira.jpeg) no-repeat center top;
-  background-size: cover;
+  background: url(../assets/img/unidade_simao_pereira.jpeg);
+  border: 5px solid #c03538; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_igreja {
-  height: 300px;
-  width: 100%;
-  background: url(../assets/img/unidade_igreja.jpeg) no-repeat center top;
-  background-size: cover;
+  background: url(../assets/img/unidade_igreja.jpeg);
+  border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_igreja_ceramica {
+  background: url(../assets/img/unid_igreja_jodelis.jpeg);
+  border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
+}
+
+.estilo_foto_card_filiais {
   height: 330px;
-  width: 100%;
-  background: url(../assets/img/unid_igreja_jodelis.jpeg) no-repeat center top;
+  width: 330px;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
+  border-radius: 50%;
+}
+
+/* Regras responsivas para telas menores */
+@media (max-width: 768px) {
+  .estilo_foto_card_filiais {
+    height: 250px;
+    width: 250px;
+  }
+
+  .gympass-container {
+    position: absolute;
+    top: 10px; /* Ajuste a posição vertical conforme necessário */
+    right: 10px; /* Ajuste a posição horizontal conforme necessário */
+  }
+
+  .gympass-logo {
+    max-width: 80x; /* Tamanho máximo da imagem */
+  }
+}
+
+@media (max-width: 576px) {
+  .estilo_foto_card_filiais {
+    height: 200px;
+    width: 200px;
+  }
+
+  .gympass-container {
+    position: absolute;
+  }
+
+  .gympass-logo {
+    max-width: 50px; /* Tamanho máximo da imagem */
+  }
 }
 
 .maps-btn {
