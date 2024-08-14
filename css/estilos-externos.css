@@ -109,7 +109,7 @@ a {
 }
 
 .unidades_foto_brooklyn_masmorra {
-  background: url(../assets/img/unidade_cascatinha.jpeg);
+  background: url(../assets/img/unidade_cascatinha-logo.jpeg);
   border: 5px solid #ffcc29; /* Opcional: borda ao redor da imagem */
 }
 
@@ -132,37 +132,37 @@ a {
 }
 
 .unidades_foto_brooklyn_encSol {
-  background: url(../assets/img/unidade_encosta_sol.jpeg);
+  background: url(../assets/img/unidade_encosta_sol-logo.jpeg);
   border: 5px solid #7f7f7f; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_brooklyn_centro {
-  background: url(../assets/img/unidade_centro.jpeg);
+  background: url(../assets/img/unidade_centro-logo.jpeg);
   border: 5px solid #3e3f99; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_degraus {
-  background: url(../assets/img/unidade_degraus.jpeg);
+  background: url(../assets/img/unidade_degraus-logo.jpeg);
   border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_san_house {
-  background: url(../assets/img/unidade_san_house.jpeg);
+  background: url(../assets/img/unidade_san_house-logo.jpeg);
   border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_simao_pereira {
-  background: url(../assets/img/unidade_simao_pereira.jpeg);
+  background: url(../assets/img/unidade_simao_pereira-logo.jpeg);
   border: 5px solid #c03538; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_igreja {
-  background: url(../assets/img/unidade_igreja.jpeg);
+  background: url(../assets/img/unidade_igreja-logo.jpeg);
   border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
 .unidades_foto_igreja_ceramica {
-  background: url(../assets/img/unid_igreja_jodelis.jpeg);
+  background: url(../assets/img/unid_igreja_jodelis-logo.jpeg);
   border: 5px solid #bc0203; /* Opcional: borda ao redor da imagem */
 }
 
