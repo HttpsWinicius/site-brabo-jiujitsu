@@ -71,7 +71,11 @@ const alunos = [
     { nome: "11&#176;- Rafael Carapinha", dataGraduacao: "Dezembro de 2023" },
     { nome: "12&#176;- Amanda Debussy", dataGraduacao: "Dezembro de 2023" },
     { nome: "13&#176;- Cláudio Ferreira", dataGraduacao: "Dezembro de 2023" },
-    { nome: "14&#176;- Lucas Santos", dataGraduacao: "Julho de 2024" },
+    { nome: "14&#176;- Lucas Santos", dataGraduacao: "Dezembro de 2024" },
+    { nome: "15&#176;- Quelber Fernandes", dataGraduacao: "Dezembro de 2024" },
+    { nome: "16&#176;- Maxuel Fernandes", dataGraduacao: "Dezembro de 2024" },
+    { nome: "17&#176;- Igor Nagen", dataGraduacao: "Dezembro de 2024" },
+    { nome: "18&#176;- Fernando Silva ", dataGraduacao: "Dezembro de 2024" },
 ];
 
 // Função para exibir os alunos
@@ -93,16 +97,16 @@ function gerarProfessores() {
     // Array de objetos representando os professores
     const professores = [
         { nome: "Jackson Silvério", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-jackson-foto-kimono.jpeg" },
-        { nome: "Claudio Libra", faixa: "Faixa Preta -  1° Dan", imagem: "/assets/img/imgs-brabo/prof-claudio-libra-foto.jpeg" },
         { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto-kimono.jpeg" },
         { nome: "Lucas Santos", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-lucas-santos-foto-kimono.jpeg" },
+        { nome: "Igor Nagen", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/profe-naja.jpeg" },
         { nome: "Maxuel Fernandes", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
         { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin-foto-kimono.jpeg" },
         { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto-kimono.jpeg" },
         { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
         { nome: "Wantuil Carcereri", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-wantuil.jpeg" },
         { nome: "Rafael Emanuel", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-rafael-emanuel.jpeg" },
-        { nome: "Yasmin Zamblute", faixa: "Faixa Roxa", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
+        { nome: "Yasmin Zamblute", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
     ];
 
     const container = document.getElementById("professores-container");
@@ -127,3 +131,21 @@ function gerarProfessores() {
     // Chamando a função para criar os elementos HTML dos professores
     professores.forEach(criarElementoProfessor);
 }
+
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3, /* Quantos slides aparecem ao mesmo tempo */
+    spaceBetween: 20, /* Espaço entre os slides */
+    loop: true, /* Faz o loop infinito */
+    autoplay: {
+      delay: 2000, /* Tempo para mudar automaticamente */
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
