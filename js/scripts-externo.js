@@ -100,13 +100,16 @@ function gerarProfessores() {
         { nome: "Claudio Brauna", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-brauna-foto-kimono.jpeg" },
         { nome: "Lucas Santos", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-lucas-santos-foto-kimono.jpeg" },
         { nome: "Igor Nagen", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/profe-naja.jpeg" },
-        { nome: "Maxuel Fernandes", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
+        { nome: "Maxuel Fernandes", faixa: "Faixa Preta", imagem: "/assets/img/imgs-brabo/prof-maxuel.jpeg" },
         { nome: "Antônio Kurimin", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-kurumin-foto-kimono.jpeg" },
         { nome: "Ramon Tabet", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-tabet-san-foto-kimono.jpeg" },
-        { nome: "Jodelis Lima", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-jodelis.jpg" },
         { nome: "Wantuil Carcereri", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-wantuil.jpeg" },
         { nome: "Rafael Emanuel", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-rafael-emanuel.jpeg" },
-        { nome: "Yasmin Zamblute", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" }
+        { nome: "Yasmin Zamblute", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-yasmin.jpeg" },
+        { nome: "Breno Ínacio", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-breno.jpeg" },
+        { nome: "Ana Andrade", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/professora-ana-andrade.jpeg" },
+        { nome: "Joao Vitor", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-joao-vitor.jpeg" },
+        { nome: "Bruno Arruda", faixa: "Faixa Marrom", imagem: "/assets/img/imgs-brabo/prof-bruno-arruda.jpeg" },
     ];
 
     const container = document.getElementById("professores-container");
