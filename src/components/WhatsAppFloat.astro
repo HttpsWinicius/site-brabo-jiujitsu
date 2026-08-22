@@ -1,0 +1,41 @@
+---
+import Icon from "./Icon.astro";
+import { linkWhatsapp } from "../lib/whatsapp.js";
+import site from "../data/site.json";
+
+const href = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+---
+
+<a class="whatsapp-flutuante" href={href} target="_blank" rel="noopener" aria-label="Fale com a Brabo Jiu-Jitsu no WhatsApp">
+  <Icon nome="whatsapp" tamanho={28} />
+</a>
+
+<style>
+  .whatsapp-flutuante {
+    position: fixed;
+    right: var(--espaco-2);
+    bottom: var(--espaco-2);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 999px;
+    background: var(--cor-marca);
+    color: var(--cor-marca-texto);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  }
+
+  .whatsapp-flutuante:hover,
+  .whatsapp-flutuante:focus-visible {
+    background: var(--cor-marca-hover);
+  }
+
+  @media (min-width: 900px) {
+    .whatsapp-flutuante {
+      right: var(--espaco-4);
+      bottom: var(--espaco-4);
+    }
+  }
+</style>

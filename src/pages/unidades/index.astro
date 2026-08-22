@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import UnidadeCard from "../../components/UnidadeCard.astro";
+import site from "../../data/site.json";
+import unidades from "../../data/unidades.json";
+
+const unidadesAtivas = unidades.filter((u) => u.ativa);
+const linkMapaGeral = "https://www.google.com/maps/search/Brabo+Jiu-Jitsu+Juiz+de+Fora";
+---
+
+<BaseLayout
+  titulo="Unidades da Brabo Jiu-Jitsu | Juiz de Fora e Região"
+  descricao={`${unidadesAtivas.length} unidades de Jiu-Jitsu em Juiz de Fora e região. Veja endereço, WhatsApp e horários de cada uma e agende sua aula grátis.`}
+>
+  <header class="container topo-pagina">
+    <h1>Unidades da Brabo Jiu-Jitsu</h1>
+    <p>
+      {unidadesAtivas.length} endereços em Juiz de Fora e região — cada unidade com seu próprio professor, sua
+      turma e seu WhatsApp direto. Escolha a mais perto de você e agende a primeira aula, que é gratuita.
+    </p>
+    <a class="botao botao--contorno" href={linkMapaGeral} target="_blank" rel="noopener">
+      Ver todas no Google Maps
+    </a>
+  </header>
+
+  <section class="container secao-unidades">
+    <div class="grade-unidades">
+      {unidadesAtivas.map((u) => <UnidadeCard unidade={u} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .topo-pagina {
+    padding-block: var(--espaco-6) var(--espaco-4);
+    max-width: 60rem;
+  }
+
+  .topo-pagina p {
+    color: var(--cor-texto-muted);
+    margin-bottom: var(--espaco-3);
+  }
+
+  .secao-unidades {
+    padding-block: var(--espaco-3) var(--espaco-7);
+  }
+
+  .grade-unidades {
+    display: grid;
+    gap: var(--espaco-3);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .grade-unidades {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .grade-unidades {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

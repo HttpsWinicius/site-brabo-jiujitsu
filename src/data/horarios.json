@@ -1,0 +1,110 @@
+[
+  {
+    "unidade": "brooklyn-masmorra-cascatinha",
+    "semGradeFixa": true,
+    "turmas": []
+  },
+  {
+    "unidade": "brooklyn-masmorra-encosta-do-sol",
+    "semGradeFixa": true,
+    "turmas": []
+  },
+  {
+    "unidade": "brooklyn-masmorra-centro",
+    "semGradeFixa": true,
+    "turmas": []
+  },
+  {
+    "unidade": "brooklyn-masmorra-simao-pereira",
+    "semGradeFixa": false,
+    "turmas": [
+      {
+        "nome": "Jiu-Jitsu Juvenil",
+        "modalidade": "jiu-jitsu-infantil",
+        "publico": null,
+        "nivel": null,
+        "professor": null,
+        "dias": ["seg"],
+        "inicio": "16:00",
+        "fim": null
+      },
+      {
+        "nome": "Jiu-Jitsu Adulto",
+        "modalidade": "jiu-jitsu-adulto",
+        "publico": null,
+        "nivel": null,
+        "professor": null,
+        "dias": ["qua", "sex"],
+        "inicio": "16:00",
+        "fim": null
+      },
+      {
+        "nome": "Jiu-Jitsu Adulto",
+        "modalidade": "jiu-jitsu-adulto",
+        "publico": null,
+        "nivel": null,
+        "professor": null,
+        "dias": ["seg", "ter", "qua", "qui", "sex"],
+        "inicio": "18:00",
+        "fim": null
+      },
+      {
+        "nome": "Jiu-Jitsu Adulto",
+        "modalidade": "jiu-jitsu-adulto",
+        "publico": null,
+        "nivel": null,
+        "professor": null,
+        "dias": ["seg", "ter", "qua", "qui", "sex"],
+        "inicio": "19:30",
+        "fim": null
+      }
+    ]
+  },
+  {
+    "unidade": "san-house-academia",
+    "semGradeFixa": true,
+    "turmas": []
+  },
+  {
+    "unidade": "igreja-evangelho-quadrangular-nova-era",
+    "semGradeFixa": false,
+    "turmas": [
+      {
+        "nome": "Jiu-Jitsu Infantil",
+        "modalidade": "jiu-jitsu-infantil",
+        "publico": null,
+        "nivel": null,
+        "professor": null,
+        "dias": ["ter", "qui"],
+        "inicio": "19:00",
+        "fim": null
+      }
+    ]
+  },
+  {
+    "unidade": "fatality-gym",
+    "semGradeFixa": false,
+    "turmas": [
+      {
+        "nome": "Jiu-Jitsu",
+        "modalidade": null,
+        "publico": null,
+        "nivel": null,
+        "professor": null,
+        "dias": ["ter", "qui"],
+        "inicio": "21:00",
+        "fim": null
+      }
+    ]
+  },
+  {
+    "unidade": "palavra-da-fe",
+    "semGradeFixa": true,
+    "turmas": []
+  },
+  {
+    "unidade": "ct-almeida-team",
+    "semGradeFixa": true,
+    "turmas": []
+  }
+]

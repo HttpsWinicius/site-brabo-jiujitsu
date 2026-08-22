@@ -1,0 +1,31 @@
+{
+  "nome": "Brabo Jiu-Jitsu",
+  "slogan": "Jiu-Jitsu em Juiz de Fora e região",
+  "descricaoCurta": "Equipe de Jiu-Jitsu de Juiz de Fora (MG), com unidades em vários bairros e municípios da região e projetos sociais.",
+  "urlCanonica": "https://brabojiujitsu.com",
+  "idioma": "pt-BR",
+  "fundacao": {
+    "anoInicio": 2011,
+    "anoRenomeacao": 2019,
+    "texto": "Fundada em setembro de 2011 por Ramon Medeiros como RM Team; renomeada para Brabo Jiu-Jitsu em 2019."
+  },
+  "primeiraAulaGratuita": true,
+  "nap": {
+    "nome": "Brabo Jiu-Jitsu",
+    "telefonePrincipal": "+553298858722",
+    "telefonePrincipalExibicao": "(32) 98858-8722",
+    "whatsappPrincipal": "5532988588722",
+    "email": "contato@brabojiujitsu.com"
+  },
+  "redesSociais": {
+    "instagram": "https://www.instagram.com/brabojiujitsu/",
+    "facebook": "https://www.facebook.com/brabojiujitsu/",
+    "youtube": "https://www.youtube.com/@BRABOJiuJitsu/videos"
+  },
+  "googleAnalyticsId": "G-6NKWPRKX04",
+  "mensagemWhatsappPadrao": "Olá! Gostaria de agendar minha primeira aula experimental gratuita na Brabo Jiu-Jitsu!",
+  "_pendencias": [
+    "E-mail oficial: o site atual EXIBE 'contato@brabojiujitsu.com' mas o link mailto: aponta para 'brabojiutjisu@gmail.com' (com erro de digitação). Usei o e-mail exibido como valor provisório — confirmar qual dos dois é o correto.",
+    "Nenhuma unidade tem Google Business Profile hoje. É grátis e é o maior fator de ranqueamento local que falta — recomendado abrir um perfil por unidade com NAP idêntico ao deste arquivo assim que possível."
+  ]
+}

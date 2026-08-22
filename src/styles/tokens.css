@@ -1,0 +1,61 @@
+/*
+  Design tokens da Brabo Jiu-Jitsu.
+  Trocar a paleta inteira = editar este bloco :root.
+*/
+:root {
+  /* Cores base — escuro e alto contraste como identidade principal */
+  --cor-fundo: #121214;
+  --cor-fundo-alt: #1c1c1f;
+  --cor-fundo-elevado: #232326;
+  --cor-texto: #f2f1ed;
+  --cor-texto-muted: #a3a3a8;
+  --cor-borda: #2c2c30;
+
+  /* Marca */
+  --cor-marca: #e1192c;
+  --cor-marca-hover: #ff3345;
+  --cor-marca-texto: #ffffff;
+
+  /* Estados */
+  --cor-sucesso: #2e8b57;
+  --cor-aviso: #ffb020;
+
+  /* Faixas de graduação (adulto) */
+  --cor-faixa-branca: #f5f5f5;
+  --cor-faixa-azul: #1e5aa8;
+  --cor-faixa-roxa: #6a3fa0;
+  --cor-faixa-marrom: #6b4226;
+  --cor-faixa-preta: #111111;
+
+  /* Faixas de graduação (infantil) */
+  --cor-faixa-cinza: #808080;
+  --cor-faixa-amarela: #ffd400;
+  --cor-faixa-laranja: #ff8c00;
+  --cor-faixa-verde: #2e8b57;
+
+  /* Tipografia */
+  --fonte-titulo: "Oswald", "Arial Narrow", sans-serif;
+  --fonte-corpo: "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --texto-corpo: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --texto-h1: clamp(2.25rem, 1.9rem + 2vw, 4rem);
+  --texto-h2: clamp(1.75rem, 1.5rem + 1.2vw, 2.75rem);
+  --texto-h3: clamp(1.375rem, 1.25rem + 0.6vw, 1.75rem);
+
+  /* Espaçamento (escala base 8px) */
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2rem;
+  --espaco-5: 3rem;
+  --espaco-6: 4rem;
+  --espaco-7: 6rem;
+  --espaco-8: 8rem;
+
+  /* Bordas — retas, quase sem raio (marca visual: peso, não boutique) */
+  --raio-borda: 2px;
+
+  /* Layout */
+  --largura-maxima: 1200px;
+  --altura-header: 4.5rem;
+}

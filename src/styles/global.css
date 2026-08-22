@@ -1,0 +1,141 @@
+@import "./tokens.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: var(--texto-corpo);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--espaco-2);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--texto-h1);
+}
+h2 {
+  font-size: var(--texto-h2);
+}
+h3 {
+  font-size: var(--texto-h3);
+}
+
+p {
+  margin: 0 0 var(--espaco-2);
+  max-width: 70ch;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  padding-left: var(--espaco-3);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-maxima);
+  margin-inline: auto;
+  padding-inline: var(--espaco-3);
+}
+
+.somente-leitor-tela {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.link-pular {
+  position: absolute;
+  left: var(--espaco-2);
+  top: -3rem;
+  background: var(--cor-marca);
+  color: var(--cor-marca-texto);
+  padding: var(--espaco-1) var(--espaco-2);
+  border-radius: var(--raio-borda);
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+
+.link-pular:focus {
+  top: var(--espaco-2);
+}
+
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espaco-1);
+  background: var(--cor-marca);
+  color: var(--cor-marca-texto);
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: var(--espaco-2) var(--espaco-3);
+  border: none;
+  border-radius: var(--raio-borda);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.botao:hover,
+.botao:focus-visible {
+  background: var(--cor-marca-hover);
+}
+
+.botao--contorno {
+  background: transparent;
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+}
+
+.botao--contorno:hover,
+.botao--contorno:focus-visible {
+  background: var(--cor-fundo-elevado);
+  border-color: var(--cor-marca);
+}
+
+.botao--sm {
+  padding: var(--espaco-1) var(--espaco-2);
+  font-size: 0.85rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cor-marca-hover);
+  outline-offset: 2px;
+}

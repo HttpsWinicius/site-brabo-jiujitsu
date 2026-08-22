@@ -1,0 +1,14 @@
+# build
+dist/
+.astro/
+
+# dependências
+node_modules/
+
+# ambiente
+.env
+.env.*
+!.env.example
+
+# editores/SO
+.DS_Store

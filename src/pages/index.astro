@@ -1,0 +1,284 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import UnidadeCard from "../components/UnidadeCard.astro";
+import Icon from "../components/Icon.astro";
+import { linkWhatsapp } from "../lib/whatsapp.js";
+import site from "../data/site.json";
+import unidades from "../data/unidades.json";
+import heroHome from "../assets/img/hero-home.jpeg";
+
+const unidadesAtivas = unidades.filter((u) => u.ativa);
+const unidadesDestaque = unidadesAtivas.slice(0, 4);
+const ctaGeral = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+
+const modalidades = [
+  {
+    nome: "Jiu-Jitsu Infantil",
+    texto: "A partir de 3 anos, o Projeto Brabinho ensina disciplina, respeito e coordenação motora dentro e fora do tatame.",
+    href: "/jiu-jitsu-infantil/",
+  },
+  {
+    nome: "Jiu-Jitsu Feminino",
+    texto: "Autodefesa, condicionamento e confiança, numa comunidade de mulheres treinando juntas.",
+    href: "/jiu-jitsu-feminino/",
+  },
+  {
+    nome: "Jiu-Jitsu Adulto",
+    texto: "Do primeiro dia no tatame ao primeiro campeonato — turmas para iniciantes e avançados.",
+    href: "/jiu-jitsu-adulto/",
+  },
+  {
+    nome: "Projeto Social",
+    texto: "Jiu-Jitsu gratuito para quem não teria acesso, na Igreja do Evangelho Quadrangular em Nova Era.",
+    href: "/projeto-social/",
+  },
+];
+
+const conquistas = [
+  "Campeão Estadual — 2ª Etapa, Juiz de Fora — 2026",
+  "Campeã Estadual — 2ª Etapa Campeonato Mineiro — 2025",
+  "Moção de Aplausos — Câmara Municipal de Juiz de Fora — 2024",
+];
+---
+
+<BaseLayout
+  titulo="Jiu-Jitsu em Juiz de Fora | Brabo Jiu-Jitsu"
+  descricao="9 unidades de Jiu-Jitsu em Juiz de Fora e região. Primeira aula experimental grátis — agende pelo WhatsApp e treine perto de você."
+>
+  <section class="hero">
+    <Image
+      class="hero__imagem"
+      src={heroHome}
+      alt="Alunos e professores da Brabo Jiu-Jitsu reunidos em evento da equipe"
+      fetchpriority="high"
+      loading="eager"
+      widths={[640, 1024, 1600]}
+      sizes="100vw"
+    />
+    <div class="hero__sombra" aria-hidden="true"></div>
+    <div class="container hero__conteudo">
+      <h1>Jiu-Jitsu em Juiz de Fora e Região</h1>
+      <p>
+        {site.fundacao.texto} Hoje são {unidadesAtivas.length} unidades e um projeto social — e a sua primeira aula é
+        gratuita.
+      </p>
+      <div class="hero__acoes">
+        <a class="botao" href={ctaGeral} target="_blank" rel="noopener">
+          <Icon nome="whatsapp" tamanho={18} />
+          Agende sua aula experimental grátis
+        </a>
+        <a class="botao botao--contorno" href="/unidades/">Ver todas as unidades</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container secao">
+    <h2>Jiu-Jitsu para cada fase da vida</h2>
+    <p class="secao__intro">Turmas para crianças, mulheres e adultos — cada uma com seu próprio ritmo e objetivo.</p>
+    <div class="grade grade--4">
+      {
+        modalidades.map((m) => (
+          <a class="bloco-modalidade" href={m.href}>
+            <h3>{m.nome}</h3>
+            <p>{m.texto}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container secao">
+    <h2>Encontre a unidade mais perto de você</h2>
+    <p class="secao__intro">
+      {unidadesAtivas.length} endereços em Juiz de Fora e região, cada um com seu professor e sua turma.
+    </p>
+    <div class="grade grade--4">
+      {unidadesDestaque.map((u) => <UnidadeCard unidade={u} />)}
+    </div>
+    <div class="secao__cta">
+      <a class="botao botao--contorno" href="/unidades/">Ver todas as {unidadesAtivas.length} unidades</a>
+    </div>
+  </section>
+
+  <section class="container secao secao--conquistas">
+    <h2>Uma equipe que compete e vence</h2>
+    <p class="secao__intro">
+      Da faixa marrom que virou professor em 2011 às conquistas de hoje — a Brabo Jiu-Jitsu é uma das equipes mais
+      respeitadas de Juiz de Fora.
+    </p>
+    <ul class="lista-conquistas">
+      {
+        conquistas.map((c) => (
+          <li>
+            <Icon nome="local" tamanho={18} />
+            {c}
+          </li>
+        ))
+      }
+    </ul>
+    <div class="secao__cta">
+      <a class="botao botao--contorno" href="/sobre/">Conheça nossa história</a>
+      <a class="botao botao--contorno" href="/faixas-pretas/">Faixas-pretas formadas</a>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="container cta-final__conteudo">
+      <h2>Sua primeira aula é grátis</h2>
+      <p>Fale com a secretaria e agende um horário na unidade mais perto de você.</p>
+      <a class="botao" href={ctaGeral} target="_blank" rel="noopener">
+        <Icon nome="whatsapp" tamanho={18} />
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 32rem;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+  }
+
+  .hero__imagem {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .hero__sombra {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 18, 20, 0.55) 0%, rgba(18, 18, 20, 0.85) 90%);
+  }
+
+  .hero__conteudo {
+    position: relative;
+    padding-block: var(--espaco-6) var(--espaco-5);
+    max-width: 46rem;
+  }
+
+  .hero__conteudo p {
+    max-width: 42rem;
+    color: #f2f1ed;
+  }
+
+  .hero__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-3);
+  }
+
+  .secao {
+    padding-block: var(--espaco-6);
+  }
+
+  .secao__intro {
+    color: var(--cor-texto-muted);
+    max-width: 50ch;
+  }
+
+  .secao__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-4);
+  }
+
+  .grade {
+    display: grid;
+    gap: var(--espaco-3);
+    margin-top: var(--espaco-4);
+    grid-template-columns: 1fr;
+  }
+
+  .bloco-modalidade {
+    display: block;
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+    text-decoration: none;
+    color: var(--cor-texto);
+  }
+
+  .bloco-modalidade:hover,
+  .bloco-modalidade:focus-visible {
+    border-color: var(--cor-marca);
+  }
+
+  .bloco-modalidade h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--espaco-1);
+    color: var(--cor-marca-hover);
+  }
+
+  .bloco-modalidade p {
+    margin: 0;
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .lista-conquistas {
+    list-style: none;
+    margin: var(--espaco-4) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+  }
+
+  .lista-conquistas li {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-2);
+    color: var(--cor-texto);
+  }
+
+  .cta-final {
+    background: var(--cor-marca);
+    padding-block: var(--espaco-6);
+    text-align: center;
+    color: #fff;
+  }
+
+  .cta-final h2 {
+    color: #fff;
+  }
+
+  .cta-final p {
+    max-width: 40ch;
+    margin-inline: auto;
+    margin-bottom: var(--espaco-3);
+  }
+
+  .cta-final .botao {
+    background: #fff;
+    color: var(--cor-marca);
+  }
+
+  .cta-final .botao:hover,
+  .cta-final .botao:focus-visible {
+    background: var(--cor-fundo-alt);
+  }
+
+  @media (min-width: 640px) {
+    .grade--4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .grade--4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

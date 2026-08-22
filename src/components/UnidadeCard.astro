@@ -1,0 +1,104 @@
+---
+import Icon from "./Icon.astro";
+import { linkWhatsapp } from "../lib/whatsapp.js";
+
+interface Props {
+  unidade: any;
+}
+
+const { unidade } = Astro.props;
+const temWhatsapp = Boolean(unidade.whatsapp);
+---
+
+<article class="card-unidade">
+  {
+    unidade.emblema && (
+      <img class="card-unidade__emblema" src={unidade.emblema} alt={unidade.emblemaAlt} width="72" height="72" loading="lazy" />
+    )
+  }
+  <div class="card-unidade__corpo">
+    <h3 class="card-unidade__titulo">
+      <a href={`/unidades/${unidade.slug}/`}>{unidade.nome}</a>
+    </h3>
+    <p class="card-unidade__local">
+      <Icon nome="local" tamanho={16} />
+      {unidade.bairro}, {unidade.cidade} - {unidade.uf}
+    </p>
+    <p class="card-unidade__endereco">{unidade.endereco}</p>
+
+    <div class="card-unidade__acoes">
+      <a class="botao botao--sm" href={`/unidades/${unidade.slug}/`}>Ver unidade</a>
+      {
+        temWhatsapp && (
+          <a
+            class="botao botao--contorno botao--sm"
+            href={linkWhatsapp(unidade.whatsapp, unidade.mensagemWhatsapp)}
+            target="_blank"
+            rel="noopener"
+          >
+            <Icon nome="whatsapp" tamanho={16} />
+            WhatsApp
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>
+
+<style>
+  .card-unidade {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+    height: 100%;
+  }
+
+  .card-unidade__emblema {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid var(--cor-borda);
+  }
+
+  .card-unidade__titulo {
+    margin: 0 0 var(--espaco-1);
+    font-size: 1.25rem;
+  }
+
+  .card-unidade__titulo a {
+    text-decoration: none;
+    color: var(--cor-texto);
+  }
+
+  .card-unidade__titulo a:hover,
+  .card-unidade__titulo a:focus-visible {
+    color: var(--cor-marca-hover);
+  }
+
+  .card-unidade__local {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+    margin: 0 0 var(--espaco-1);
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+  }
+
+  .card-unidade__endereco {
+    margin: 0 0 var(--espaco-2);
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .card-unidade__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-1);
+    margin-top: auto;
+  }
+</style>

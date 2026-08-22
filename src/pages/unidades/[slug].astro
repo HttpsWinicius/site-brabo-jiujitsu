@@ -1,0 +1,367 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import MapaEmbed from "../../components/MapaEmbed.astro";
+import Icon from "../../components/Icon.astro";
+import { linkWhatsapp } from "../../lib/whatsapp.js";
+import { formatarDias, NOMES_MODALIDADE, alvoLocalDe } from "../../lib/rotulos.js";
+import unidades from "../../data/unidades.json";
+import professoresTodos from "../../data/professores.json";
+import horariosTodos from "../../data/horarios.json";
+
+export async function getStaticPaths() {
+  const ativas = unidades.filter((u) => u.ativa);
+  return ativas.map((u) => {
+    const alvo = alvoLocalDe(u);
+    const colideLocal = ativas.some((o) => o.slug !== u.slug && alvoLocalDe(o) === alvo);
+    return {
+      params: { slug: u.slug },
+      props: { unidade: u, colideLocal },
+    };
+  });
+}
+
+const { unidade, colideLocal } = Astro.props;
+
+const alvoLocal = alvoLocalDe(unidade);
+
+// Quando duas unidades caem no mesmo bairro/cidade (ex.: Centro), o nome da unidade
+// entra no título pra evitar title/description duplicados — ruim pra SEO.
+const titulo = colideLocal ? `${unidade.nome} | Brabo Jiu-Jitsu` : `Jiu-Jitsu em ${alvoLocal} | Brabo Jiu-Jitsu`;
+const descricao = unidade.projetoSocial
+  ? `Projeto social de Jiu-Jitsu gratuito na ${unidade.nome}, em ${unidade.bairro}, ${unidade.cidade}. Ligue e saiba como participar.`
+  : `Aula experimental grátis de Jiu-Jitsu na ${unidade.nome}, em ${unidade.bairro}, ${unidade.cidade}. Chame no WhatsApp e agende.`;
+
+const professoresUnidade = professoresTodos.filter((p) => unidade.professores.includes(p.slug));
+const horarioUnidade = horariosTodos.find((h) => h.unidade === unidade.slug);
+const temGradeFixa = horarioUnidade && !horarioUnidade.semGradeFixa && horarioUnidade.turmas.length > 0;
+
+const ctaWhatsapp = unidade.whatsapp ? linkWhatsapp(unidade.whatsapp, unidade.mensagemWhatsapp) : null;
+---
+
+<BaseLayout titulo={titulo} descricao={descricao}>
+  <nav class="container migalha" aria-label="Você está aqui">
+    <a href="/unidades/">Unidades</a> <span aria-hidden="true">/</span> <span>{unidade.nome}</span>
+  </nav>
+
+  <header class="container topo-unidade">
+    {unidade.emblema && <img class="topo-unidade__emblema" src={unidade.emblema} alt={unidade.emblemaAlt} width="96" height="96" />}
+    <div>
+      <h1>
+        {unidade.nome} — {unidade.bairro}, {unidade.cidade}
+      </h1>
+      <div class="topo-unidade__selos">
+        {unidade.gympass && <span class="selo">Gympass / Wellhub</span>}
+        {unidade.projetoSocial && <span class="selo">Projeto social</span>}
+      </div>
+    </div>
+  </header>
+
+  <section class="container grade-principal">
+    <div class="coluna-info">
+      <h2>Endereço e contato</h2>
+      <p class="linha-info">
+        <Icon nome="local" tamanho={18} />
+        {unidade.endereco}, {unidade.bairro}, {unidade.cidade} - {unidade.uf}
+        {unidade.cep && ` — ${unidade.cep}`}
+      </p>
+      <p class="linha-info">
+        <Icon nome="telefone" tamanho={18} />
+        <a href={`tel:${unidade.telefone}`}>{unidade.telefoneExibicao}</a>
+      </p>
+      {
+        unidade.instagram && (
+          <p class="linha-info">
+            <Icon nome="instagram" tamanho={18} />
+            <a href={unidade.instagram} target="_blank" rel="noopener">
+              Instagram da unidade
+            </a>
+          </p>
+        )
+      }
+
+      {
+        unidade.modalidades.length > 0 && (
+          <>
+            <h2>Modalidades</h2>
+            <ul class="lista-modalidades">
+              {unidade.modalidades.map((m) => (
+                <li>{NOMES_MODALIDADE[m] ?? m}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      <h2>Horários</h2>
+      {
+        temGradeFixa ? (
+          <ul class="lista-turmas">
+            {horarioUnidade.turmas.map((t) => (
+              <li>
+                <strong>{t.nome}</strong>
+                <span>
+                  {formatarDias(t.dias)} — {t.inicio}
+                  {t.fim ? `–${t.fim}` : "h"}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="aviso-grade">
+            Os horários desta unidade ainda não têm grade fixa — fale com a secretaria no WhatsApp e confirme o
+            melhor turno pra você.
+          </p>
+        )
+      }
+
+      {
+        professoresUnidade.length > 0 && (
+          <>
+            <h2>Professores</h2>
+            <ul class="lista-professores">
+              {professoresUnidade.map((p) => (
+                <li>
+                  {p.foto && <img src={p.foto} alt={`Foto de ${p.nome}`} width="56" height="56" loading="lazy" />}
+                  <div>
+                    <strong>{p.nome}</strong>
+                    <span>
+                      Faixa {p.faixa}
+                      {p.grau ? ` — ${p.grau}° grau` : ""}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+
+      <h2>Perguntas frequentes</h2>
+      <details class="faq-item">
+        <summary>A primeira aula é gratuita?</summary>
+        <p>Sim. A primeira aula experimental na Brabo Jiu-Jitsu é gratuita em todas as unidades.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como agendo minha aula experimental?</summary>
+        <p>
+          Chame a secretaria desta unidade no WhatsApp {unidade.telefoneExibicao} e combine o melhor dia e horário
+          pra você.
+        </p>
+      </details>
+    </div>
+
+    <div class="coluna-mapa">
+      <MapaEmbed endereco={`${unidade.endereco}, ${unidade.bairro}, ${unidade.cidade} - ${unidade.uf}`} nome={unidade.nome} />
+      {
+        unidade.googleMaps && (
+          <a class="botao botao--contorno botao--bloco" href={unidade.googleMaps} target="_blank" rel="noopener">
+            Ver no Google Maps
+          </a>
+        )
+      }
+      {
+        ctaWhatsapp ? (
+          <a class="botao botao--bloco" href={ctaWhatsapp} target="_blank" rel="noopener">
+            <Icon nome="whatsapp" tamanho={18} />
+            Agendar aula experimental grátis
+          </a>
+        ) : (
+          <a class="botao botao--bloco" href={`tel:${unidade.telefone}`}>
+            <Icon nome="telefone" tamanho={18} />
+            Ligar para a unidade
+          </a>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .migalha {
+    padding-top: var(--espaco-3);
+    font-size: 0.85rem;
+    color: var(--cor-texto-muted);
+  }
+
+  .migalha a {
+    color: var(--cor-texto-muted);
+  }
+
+  .migalha span:last-child {
+    color: var(--cor-texto);
+  }
+
+  .topo-unidade {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-3);
+    padding-block: var(--espaco-3) var(--espaco-5);
+  }
+
+  .topo-unidade__emblema {
+    border-radius: 999px;
+    border: 1px solid var(--cor-borda);
+    flex-shrink: 0;
+  }
+
+  .topo-unidade__selos {
+    display: flex;
+    gap: var(--espaco-1);
+    margin-top: var(--espaco-1);
+  }
+
+  .selo {
+    display: inline-block;
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: 999px;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.75rem;
+    color: var(--cor-texto-muted);
+  }
+
+  .grade-principal {
+    display: grid;
+    gap: var(--espaco-5);
+    grid-template-columns: 1fr;
+    padding-bottom: var(--espaco-7);
+  }
+
+  .grade-principal h2 {
+    font-size: 1.3rem;
+    margin-top: var(--espaco-4);
+  }
+
+  .grade-principal h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .linha-info {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+    margin: 0 0 var(--espaco-1);
+  }
+
+  .linha-info a {
+    text-decoration: none;
+    color: var(--cor-texto);
+  }
+
+  .lista-modalidades {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--espaco-1);
+    flex-wrap: wrap;
+  }
+
+  .lista-modalidades li {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .aviso-grade {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-left: 3px solid var(--cor-marca);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2);
+    color: var(--cor-texto-muted);
+  }
+
+  .lista-turmas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+  }
+
+  .lista-turmas li {
+    display: flex;
+    flex-direction: column;
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2);
+  }
+
+  .lista-turmas span {
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .lista-professores {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+  }
+
+  .lista-professores li {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-2);
+  }
+
+  .lista-professores img {
+    border-radius: 999px;
+    object-fit: cover;
+  }
+
+  .lista-professores span {
+    display: block;
+    color: var(--cor-texto-muted);
+    font-size: 0.85rem;
+    text-transform: capitalize;
+  }
+
+  .faq-item {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2);
+    margin-bottom: var(--espaco-1);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .faq-item p {
+    margin: var(--espaco-1) 0 0;
+    color: var(--cor-texto-muted);
+  }
+
+  .coluna-mapa {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+  }
+
+  .botao--bloco {
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (min-width: 900px) {
+    .grade-principal {
+      grid-template-columns: 1.4fr 1fr;
+    }
+
+    .coluna-mapa {
+      position: sticky;
+      top: calc(var(--altura-header) + var(--espaco-3));
+      align-self: start;
+    }
+  }
+</style>

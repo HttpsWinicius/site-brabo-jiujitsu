@@ -1,0 +1,242 @@
+---
+import Icon from "./Icon.astro";
+import { linkWhatsapp } from "../lib/whatsapp.js";
+import site from "../data/site.json";
+
+const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+---
+
+<header class="header">
+  <div class="container header__linha">
+    <a class="header__marca" href="/" aria-label="Brabo Jiu-Jitsu — página inicial">
+      <img src="/assets/img/logo-brabo-menu.png" alt="Brabo Jiu-Jitsu" width="140" height="44" />
+    </a>
+
+    <button class="header__alternar" type="button" aria-expanded="false" aria-controls="menu-principal" id="botao-menu">
+      <span class="somente-leitor-tela">Abrir menu</span>
+      <Icon nome="menu" tamanho={26} />
+    </button>
+
+    <nav class="header__nav" id="menu-principal" aria-label="Menu principal">
+      <ul class="header__lista">
+        <li><a href="/">Início</a></li>
+        <li><a href="/unidades/">Unidades</a></li>
+        <li><a href="/horarios/">Horários</a></li>
+        <li class="header__item-dropdown">
+          <details>
+            <summary>
+              Jiu-Jitsu
+              <Icon nome="seta-baixo" tamanho={16} />
+            </summary>
+            <ul>
+              <li><a href="/jiu-jitsu-infantil/">Jiu-Jitsu Infantil</a></li>
+              <li><a href="/jiu-jitsu-feminino/">Jiu-Jitsu Feminino</a></li>
+              <li><a href="/jiu-jitsu-adulto/">Jiu-Jitsu Adulto</a></li>
+              <li><a href="/projeto-social/">Projeto Social</a></li>
+            </ul>
+          </details>
+        </li>
+        <li class="header__item-dropdown">
+          <details>
+            <summary>
+              Família Brabo
+              <Icon nome="seta-baixo" tamanho={16} />
+            </summary>
+            <ul>
+              <li><a href="/sobre/">Sobre</a></li>
+              <li><a href="/faixas-pretas/">Faixas-pretas</a></li>
+              <li><a href="/metodologia/">Metodologia</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="/planos/">Planos</a></li>
+        <li><a href="/perguntas-frequentes/">Perguntas frequentes</a></li>
+        <li><a href="/contato/">Contato</a></li>
+      </ul>
+
+      <a class="botao header__cta" href={cta} target="_blank" rel="noopener">
+        <Icon nome="whatsapp" tamanho={18} />
+        Aula experimental grátis
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const botao = document.getElementById("botao-menu");
+  const menu = document.getElementById("menu-principal");
+
+  botao?.addEventListener("click", () => {
+    const aberto = botao.getAttribute("aria-expanded") === "true";
+    botao.setAttribute("aria-expanded", String(!aberto));
+    menu?.classList.toggle("header__nav--aberto");
+  });
+
+  // Fecha o menu mobile ao navegar para um link
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      botao?.setAttribute("aria-expanded", "false");
+      menu.classList.remove("header__nav--aberto");
+    });
+  });
+</script>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+    height: var(--altura-header);
+  }
+
+  .header__linha {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espaco-3);
+  }
+
+  .header__marca img {
+    height: 2.5rem;
+    width: auto;
+  }
+
+  .header__alternar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    color: var(--cor-texto);
+    padding: var(--espaco-1);
+    cursor: pointer;
+  }
+
+  .header__nav {
+    display: none;
+    position: absolute;
+    inset: var(--altura-header) 0 auto 0;
+    background: var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: var(--espaco-3);
+    max-height: calc(100vh - var(--altura-header));
+    overflow-y: auto;
+  }
+
+  .header__nav--aberto {
+    display: block;
+  }
+
+  .header__lista {
+    list-style: none;
+    margin: 0 0 var(--espaco-3);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+    font-family: var(--fonte-titulo);
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+  }
+
+  .header__lista > li > a {
+    display: block;
+    padding: var(--espaco-1) 0;
+    text-decoration: none;
+    color: var(--cor-texto);
+  }
+
+  .header__lista > li > a:hover,
+  .header__lista > li > a:focus-visible {
+    color: var(--cor-marca-hover);
+  }
+
+  .header__item-dropdown summary {
+    cursor: pointer;
+    padding: var(--espaco-1) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+    list-style: none;
+  }
+
+  .header__item-dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .header__item-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 var(--espaco-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+  }
+
+  .header__item-dropdown ul a {
+    text-decoration: none;
+    color: var(--cor-texto-muted);
+  }
+
+  .header__item-dropdown ul a:hover,
+  .header__item-dropdown ul a:focus-visible {
+    color: var(--cor-marca-hover);
+  }
+
+  .header__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (min-width: 900px) {
+    .header__alternar {
+      display: none;
+    }
+
+    .header__nav {
+      display: flex;
+      position: static;
+      background: none;
+      border: none;
+      padding: 0;
+      max-height: none;
+      overflow: visible;
+      align-items: center;
+      gap: var(--espaco-4);
+      flex: 1;
+      justify-content: flex-end;
+    }
+
+    .header__lista {
+      flex-direction: row;
+      align-items: center;
+      margin: 0;
+      gap: var(--espaco-3);
+    }
+
+    .header__item-dropdown {
+      position: relative;
+    }
+
+    .header__item-dropdown ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--cor-fundo-alt);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: var(--espaco-2);
+      min-width: 12rem;
+      white-space: nowrap;
+    }
+
+    .header__cta {
+      width: auto;
+    }
+  }
+</style>

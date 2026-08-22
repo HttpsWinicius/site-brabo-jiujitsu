@@ -1,0 +1,163 @@
+---
+import Icon from "./Icon.astro";
+import { linkWhatsapp } from "../lib/whatsapp.js";
+import site from "../data/site.json";
+import unidades from "../data/unidades.json";
+
+const ativas = unidades.filter((u) => u.ativa);
+const anoAtual = new Date().getFullYear();
+---
+
+<footer class="rodape">
+  <div class="container rodape__grade">
+    <div class="rodape__coluna">
+      <h2 class="rodape__titulo">{site.nome}</h2>
+      <p class="rodape__nap">
+        <Icon nome="telefone" tamanho={18} />
+        <a href={`tel:${site.nap.telefonePrincipal}`}>{site.nap.telefonePrincipalExibicao}</a>
+      </p>
+      <p class="rodape__nap">
+        <Icon nome="whatsapp" tamanho={18} />
+        <a href={linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao)} target="_blank" rel="noopener">
+          Fale no WhatsApp
+        </a>
+      </p>
+      <p class="rodape__nap">
+        <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a>
+      </p>
+      <div class="rodape__social">
+        <a href={site.redesSociais.instagram} target="_blank" rel="noopener" aria-label="Instagram da Brabo Jiu-Jitsu">
+          <Icon nome="instagram" />
+        </a>
+        <a href={site.redesSociais.facebook} target="_blank" rel="noopener" aria-label="Facebook da Brabo Jiu-Jitsu">
+          <Icon nome="facebook" />
+        </a>
+        <a href={site.redesSociais.youtube} target="_blank" rel="noopener" aria-label="YouTube da Brabo Jiu-Jitsu">
+          <Icon nome="youtube" />
+        </a>
+      </div>
+    </div>
+
+    <nav class="rodape__coluna" aria-label="Unidades">
+      <h2 class="rodape__titulo">Unidades</h2>
+      <ul class="rodape__lista">
+        {
+          ativas.map((u) => (
+            <li>
+              <a href={`/unidades/${u.slug}/`}>
+                {u.nome} — {u.bairro}, {u.cidade}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav class="rodape__coluna" aria-label="Institucional">
+      <h2 class="rodape__titulo">Institucional</h2>
+      <ul class="rodape__lista">
+        <li><a href="/sobre/">Sobre a equipe</a></li>
+        <li><a href="/metodologia/">Metodologia</a></li>
+        <li><a href="/faixas-pretas/">Faixas-pretas</a></li>
+        <li><a href="/projeto-social/">Projeto social</a></li>
+        <li><a href="/planos/">Planos</a></li>
+        <li><a href="/perguntas-frequentes/">Perguntas frequentes</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container rodape__copyright">
+    <p>&copy; {anoAtual} {site.nome}. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .rodape {
+    background: var(--cor-fundo-alt);
+    border-top: 1px solid var(--cor-borda);
+    padding-block: var(--espaco-6) var(--espaco-4);
+    margin-top: var(--espaco-7);
+  }
+
+  .rodape__grade {
+    display: grid;
+    gap: var(--espaco-5);
+    grid-template-columns: 1fr;
+  }
+
+  .rodape__titulo {
+    font-size: 1.1rem;
+    margin-bottom: var(--espaco-2);
+  }
+
+  .rodape__nap {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+    margin: 0 0 var(--espaco-1);
+    color: var(--cor-texto-muted);
+  }
+
+  .rodape__nap a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .rodape__nap a:hover,
+  .rodape__nap a:focus-visible {
+    color: var(--cor-marca-hover);
+  }
+
+  .rodape__social {
+    display: flex;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-2);
+  }
+
+  .rodape__social a {
+    color: var(--cor-texto-muted);
+  }
+
+  .rodape__social a:hover,
+  .rodape__social a:focus-visible {
+    color: var(--cor-marca-hover);
+  }
+
+  .rodape__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+  }
+
+  .rodape__lista a {
+    text-decoration: none;
+    color: var(--cor-texto-muted);
+    font-size: 0.95rem;
+  }
+
+  .rodape__lista a:hover,
+  .rodape__lista a:focus-visible {
+    color: var(--cor-marca-hover);
+  }
+
+  .rodape__copyright {
+    margin-top: var(--espaco-6);
+    padding-top: var(--espaco-3);
+    border-top: 1px solid var(--cor-borda);
+    color: var(--cor-texto-muted);
+    font-size: 0.85rem;
+  }
+
+  .rodape__copyright p {
+    margin: 0;
+  }
+
+  @media (min-width: 700px) {
+    .rodape__grade {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

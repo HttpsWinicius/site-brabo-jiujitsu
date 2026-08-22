@@ -1,0 +1,61 @@
+---
+// Layout base de todas as páginas do site.
+// Título e descrição são responsabilidade de cada página (limites de SEO: title <=60,
+// description <=155 — ver seção de SEO técnico na Fase 6).
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import site from "../data/site.json";
+import "../styles/global.css";
+
+interface Props {
+  titulo: string;
+  descricao: string;
+}
+
+const { titulo, descricao } = Astro.props;
+const canonica = new URL(Astro.url.pathname, site.urlCanonica).toString();
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonica} />
+
+    <link rel="icon" href="/assets/img/favicon-brabo.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon-brabo.png" />
+
+    <!-- Google Fonts (interino — auto-hospedagem em .woff2 entra na Fase 7 de performance) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="link-pular" href="#conteudo-principal">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo-principal">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.googleAnalyticsId}`}></script>
+    <script define:vars={{ id: site.googleAnalyticsId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", id);
+    </script>
+  </body>
+</html>
