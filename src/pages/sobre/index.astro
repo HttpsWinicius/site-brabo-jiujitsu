@@ -1,0 +1,154 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import site from "../../data/site.json";
+import imagem from "../../assets/img/sobre.jpeg";
+
+const valores = [
+  { nome: "Bravura", texto: "Coragem durante a prática: enfrentar desafios com determinação, resiliência e firmeza em situações difíceis na luta." },
+  { nome: "Respeito", texto: "Consideração e cortesia entre praticantes, valorizando integridade, ética e humildade dentro e fora do tatame." },
+  { nome: "Amizade", texto: "Laços respeitosos entre praticantes, independentemente do nível — o companheirismo contribui pro crescimento coletivo." },
+  { nome: "Benevolência", texto: "Gentileza e respeito na prática, promovendo um ambiente positivo e disposição para ajudar no desenvolvimento mútuo." },
+  { nome: "Obstinação", texto: "Determinação incansável na busca de aprimoramento técnico e superação de desafios, mesmo diante de dificuldades." },
+];
+
+const conquistas = [
+  "Campeão Estadual — 2ª Etapa, Juiz de Fora — 2026",
+  "Campeã Estadual — 2ª Etapa Campeonato Mineiro — 2025",
+  "Moção de Aplausos — Câmara Municipal de Juiz de Fora — 2024",
+  "Campeã Municipal — Open Jiu-Jitsu Juiz de Fora — 2024",
+  "Campeã Estadual — 3ª Etapa Campeonato Mineiro — 2024",
+  "Campeã Estadual — 4ª Etapa Campeonato Mineiro — 2023",
+  "Campeã Municipal — Open Jiu-Jitsu Juiz de Fora — 2023",
+];
+---
+
+<BaseLayout
+  titulo="Sobre a Brabo Jiu-Jitsu | Juiz de Fora"
+  descricao="A história da Brabo Jiu-Jitsu, de 2011 até hoje: valores, conquistas e a equipe por trás de 9 unidades em Juiz de Fora."
+>
+  <PageHero imagem={imagem} alt="Retrato do professor Ramon Medeiros, fundador da Brabo Jiu-Jitsu" titulo="Nossa história" posicao="center 15%">
+    <Fragment slot="intro">{site.fundacao.texto}</Fragment>
+  </PageHero>
+
+  <section class="container secao">
+    <h2>Como começou</h2>
+    <p class="secao__intro">
+      Em setembro de 2011, o faixa marrom Ramon Medeiros, recém-formado em Educação Física, aceitou a proposta de
+      assumir uma turma de Jiu-Jitsu na academia Atletic Iron, no bairro Milho Branco, em Juiz de Fora. Entre os
+      alunos da primeira aula estava Jackson Silvério, faixa branca na época e hoje faixa preta, líder da unidade
+      Encosta do Sol.
+    </p>
+    <p class="secao__intro">
+      Em janeiro de 2012, Ramon passou a atuar nas academias da Zona Sul da cidade. Pouco depois, o dono da
+      tradicional Academia Gold, no bairro Cascatinha, investiu num tatame próprio, dando início a uma nova turma.
+      Em 2017 veio a segunda unidade e a formação de novos professores, consolidando o reconhecimento da equipe como
+      potência regional.
+    </p>
+    <p class="secao__intro">
+      Em 2019, o nome RM Team virou Brabo Jiu-Jitsu. Em 2023, a equipe foi campeã dos campeonatos da cidade e se
+      tornou uma das mais unidas e respeitadas das disputas. Hoje seguimos ampliando o nível pra sermos, cada vez
+      mais, referência dentro e fora de Juiz de Fora.
+    </p>
+  </section>
+
+  <section class="container secao">
+    <h2>Arte suave, valores firmes</h2>
+    <div class="grade-valores">
+      {
+        valores.map((v) => (
+          <div class="bloco-valor">
+            <h3>{v.nome}</h3>
+            <p>{v.texto}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container secao">
+    <h2>Conquistas</h2>
+    <ul class="lista-conquistas">
+      {conquistas.map((c) => <li>{c}</li>)}
+    </ul>
+  </section>
+
+  <section class="container secao secao--final">
+    <p>Conheça também quem ensina no tatame todos os dias.</p>
+    <div class="secao__cta">
+      <a class="botao botao--contorno" href="/professores/">Nossos professores</a>
+      <a class="botao botao--contorno" href="/faixas-pretas/">Faixas-pretas formadas</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao {
+    padding-block: var(--espaco-5);
+    max-width: 60rem;
+  }
+
+  .secao__intro {
+    color: var(--cor-texto-muted);
+  }
+
+  .grade-valores {
+    display: grid;
+    gap: var(--espaco-2);
+    grid-template-columns: 1fr;
+    margin-top: var(--espaco-3);
+  }
+
+  .bloco-valor {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+  }
+
+  .bloco-valor h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+    color: var(--cor-marca-hover);
+  }
+
+  .bloco-valor p {
+    margin: 0;
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .lista-conquistas {
+    list-style: none;
+    margin: var(--espaco-3) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+  }
+
+  .lista-conquistas li {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-left: 3px solid var(--cor-marca);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2);
+  }
+
+  .secao--final {
+    padding-bottom: var(--espaco-7);
+  }
+
+  .secao__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-3);
+  }
+
+  @media (min-width: 640px) {
+    .grade-valores {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Icon from "../../components/Icon.astro";
+import { linkWhatsapp } from "../../lib/whatsapp.js";
+import site from "../../data/site.json";
+// Modelo pronto pra receber valores reais: cada item de planos.json vira um card aqui.
+// Formato esperado por item: { "nome": "...", "preco": "...", "periodo": "...", "beneficios": ["..."] }
+// Enquanto planos.json estiver vazio ([]), a página mostra o aviso "fale com a secretaria" abaixo.
+import planos from "../../data/planos.json";
+
+const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+---
+
+<BaseLayout
+  titulo="Planos e Matrícula | Brabo Jiu-Jitsu — Juiz de Fora"
+  descricao="Como funciona a matrícula na Brabo Jiu-Jitsu e quanto custa treinar. Primeira aula gratuita — fale com a secretaria da sua unidade."
+>
+  <PageHeader titulo="Planos e matrícula">
+    A primeira aula é sempre gratuita. Veja como funciona o passo seguinte.
+  </PageHeader>
+
+  <section class="container secao">
+    {
+      planos.length > 0 ? (
+        <div class="grade-planos">
+          {planos.map((p) => (
+            <div class="card-plano">
+              <h3>{p.nome}</h3>
+              <p class="card-plano__preco">
+                {p.preco} <span>/ {p.periodo}</span>
+              </p>
+              <ul>
+                {p.beneficios.map((b) => (
+                  <li>{b}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="aviso-planos">
+          <p>
+            Os valores variam de acordo com a unidade e a modalidade escolhida. Como a primeira aula é gratuita, o
+            jeito mais rápido de saber o valor certo pra você é chamar a secretaria da unidade mais perto no
+            WhatsApp.
+          </p>
+          <a class="botao" href={cta} target="_blank" rel="noopener">
+            <Icon nome="whatsapp" tamanho={18} />
+            Chamar no WhatsApp
+          </a>
+        </div>
+      )
+    }
+  </section>
+
+  <section class="container secao secao--final">
+    <h2>Como funciona</h2>
+    <ol class="lista-passos">
+      <li>Escolha a unidade mais perto de você na página de <a href="/unidades/">Unidades</a>.</li>
+      <li>Chame a secretaria no WhatsApp e agende sua primeira aula, que é gratuita.</li>
+      <li>Depois da experimental, a secretaria explica os valores e formas de pagamento daquela unidade.</li>
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao {
+    padding-block: var(--espaco-5);
+    max-width: 55rem;
+  }
+
+  .secao--final {
+    padding-bottom: var(--espaco-7);
+  }
+
+  .aviso-planos {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-left: 3px solid var(--cor-marca);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-4);
+  }
+
+  .aviso-planos p {
+    color: var(--cor-texto-muted);
+    margin-bottom: var(--espaco-3);
+  }
+
+  .grade-planos {
+    display: grid;
+    gap: var(--espaco-3);
+    grid-template-columns: 1fr;
+  }
+
+  .card-plano {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+  }
+
+  .card-plano__preco {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    color: var(--cor-marca-hover);
+  }
+
+  .card-plano__preco span {
+    font-size: 0.9rem;
+    color: var(--cor-texto-muted);
+    font-family: var(--fonte-corpo);
+  }
+
+  .lista-passos {
+    color: var(--cor-texto-muted);
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+  }
+
+  @media (min-width: 640px) {
+    .grade-planos {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

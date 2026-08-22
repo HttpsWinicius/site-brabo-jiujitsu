@@ -1,0 +1,90 @@
+---
+interface Props {
+  professor: any;
+}
+const { professor } = Astro.props;
+---
+
+<article class="card-professor">
+  {
+    professor.foto ? (
+      <img src={professor.foto} alt={`Foto de ${professor.nome}`} width="200" height="200" loading="lazy" />
+    ) : (
+      <div class="card-professor__sem-foto" aria-hidden="true">
+        {professor.nome.charAt(0)}
+      </div>
+    )
+  }
+  <div class="card-professor__corpo">
+    <h3>{professor.nome}</h3>
+    <p class={`card-professor__faixa card-professor__faixa--${professor.faixa}`}>
+      Faixa {professor.faixa}
+      {professor.grau ? ` — ${professor.grau}° grau` : ""}
+    </p>
+    <p class="card-professor__cargo">{professor.cargo}</p>
+  </div>
+</article>
+
+<style>
+  .card-professor {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .card-professor img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+
+  .card-professor__sem-foto {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cor-fundo-elevado);
+    font-family: var(--fonte-titulo);
+    font-size: 3rem;
+    color: var(--cor-texto-muted);
+  }
+
+  .card-professor__corpo {
+    padding: var(--espaco-2);
+  }
+
+  .card-professor__corpo h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-professor__faixa {
+    margin: 0 0 0.25rem;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+
+  .card-professor__faixa--preta {
+    color: var(--cor-faixa-preta);
+    -webkit-text-stroke: 0.3px var(--cor-texto-muted);
+  }
+  .card-professor__faixa--marrom {
+    color: var(--cor-faixa-marrom);
+  }
+  .card-professor__faixa--roxa {
+    color: var(--cor-faixa-roxa);
+  }
+  .card-professor__faixa--azul {
+    color: var(--cor-faixa-azul);
+  }
+
+  .card-professor__cargo {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--cor-texto-muted);
+  }
+</style>

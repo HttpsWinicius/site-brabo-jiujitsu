@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Icon from "../../components/Icon.astro";
+import { linkWhatsapp } from "../../lib/whatsapp.js";
+import site from "../../data/site.json";
+
+const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+---
+
+<BaseLayout
+  titulo="Contato | Brabo Jiu-Jitsu — Juiz de Fora"
+  descricao="Fale com a secretaria da Brabo Jiu-Jitsu pelo WhatsApp, telefone ou e-mail e agende sua aula experimental grátis."
+>
+  <PageHeader titulo="Fale com a gente">
+    Prefere falar direto com a unidade mais perto de você? Veja o contato de cada uma em <a href="/unidades/">Unidades</a>.
+  </PageHeader>
+
+  <section class="container secao-contato">
+    <div class="bloco-contato">
+      <Icon nome="telefone" tamanho={28} />
+      <h2>Telefone</h2>
+      <a href={`tel:${site.nap.telefonePrincipal}`}>{site.nap.telefonePrincipalExibicao}</a>
+    </div>
+    <div class="bloco-contato">
+      <Icon nome="whatsapp" tamanho={28} />
+      <h2>WhatsApp</h2>
+      <a href={cta} target="_blank" rel="noopener">Chamar a secretaria</a>
+    </div>
+    <div class="bloco-contato">
+      <Icon nome="local" tamanho={28} />
+      <h2>E-mail</h2>
+      <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a>
+    </div>
+  </section>
+
+  <section class="container secao-final">
+    <p>
+      Para valores e planos, fale direto com a secretaria pelo WhatsApp. Para horários de treino, veja a página de
+      <a href="/horarios/">Horários</a>.
+    </p>
+    <a class="botao" href={cta} target="_blank" rel="noopener">
+      <Icon nome="whatsapp" tamanho={18} />
+      Chamar no WhatsApp
+    </a>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao-contato {
+    display: grid;
+    gap: var(--espaco-3);
+    grid-template-columns: 1fr;
+    padding-block: var(--espaco-3) var(--espaco-5);
+  }
+
+  .bloco-contato {
+    text-align: center;
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-4);
+    color: var(--cor-marca-hover);
+  }
+
+  .bloco-contato h2 {
+    font-size: 1.1rem;
+    margin: var(--espaco-2) 0 var(--espaco-1);
+    color: var(--cor-texto);
+  }
+
+  .bloco-contato a {
+    text-decoration: none;
+    color: var(--cor-texto-muted);
+  }
+
+  .secao-final {
+    text-align: center;
+    padding-bottom: var(--espaco-7);
+  }
+
+  .secao-final p {
+    color: var(--cor-texto-muted);
+    max-width: 45ch;
+    margin-inline: auto;
+    margin-bottom: var(--espaco-3);
+  }
+
+  @media (min-width: 700px) {
+    .secao-contato {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

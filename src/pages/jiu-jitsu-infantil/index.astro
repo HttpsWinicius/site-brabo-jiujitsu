@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import FaqItem from "../../components/FaqItem.astro";
+import Icon from "../../components/Icon.astro";
+import { linkWhatsapp } from "../../lib/whatsapp.js";
+import site from "../../data/site.json";
+import faq from "../../data/faq.json";
+import imagem from "../../assets/img/infantil.jpeg";
+
+const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+const faqInfantil = faq.filter((f) => f.categoria === "infantil" || f.pergunta.includes("gratuita"));
+
+const faixasEtarias = [
+  { faixa: "3 a 6 anos", turma: "Mirim" },
+  { faixa: "6 a 10 anos", turma: "Infantil 1" },
+  { faixa: "10 a 15 anos", turma: "Infantil 2" },
+  { faixa: "15 a 18 anos", turma: "Juvenil" },
+];
+---
+
+<BaseLayout
+  titulo="Jiu-Jitsu Infantil em Juiz de Fora | Brabo Jiu-Jitsu"
+  descricao="Projeto Brabinho: Jiu-Jitsu infantil a partir de 3 anos em Juiz de Fora. Disciplina, coordenação motora e primeira aula grátis."
+>
+  <PageHero imagem={imagem} alt="Crianças e professores em cerimônia de graduação de faixa do Projeto Brabinho" titulo="Jiu-Jitsu Infantil — Projeto Brabinho">
+    <Fragment slot="intro">
+      A partir de 3 anos, o Projeto Brabinho ensina Jiu-Jitsu com foco no desenvolvimento físico, mental e emocional
+      das crianças.
+    </Fragment>
+    <Fragment slot="acoes">
+      <a class="botao" href={cta} target="_blank" rel="noopener">
+        <Icon nome="whatsapp" tamanho={18} />
+        Agende a aula experimental grátis
+      </a>
+    </Fragment>
+  </PageHero>
+
+  <section class="container secao">
+    <h2>Jiu-Jitsu para cada idade</h2>
+    <p class="secao__intro">
+      A idade mínima para começar é 3 anos. É recomendável que a criança passe por uma avaliação médica antes de
+      iniciar, para garantir que não há nenhuma condição de saúde que precise de cuidado especial.
+    </p>
+    <div class="grade-faixas">
+      {
+        faixasEtarias.map((f) => (
+          <div class="bloco-faixa-etaria">
+            <strong>{f.turma}</strong>
+            <span>{f.faixa}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container secao">
+    <h2>Por que Jiu-Jitsu na infância?</h2>
+    <p class="secao__intro">
+      O Jiu-Jitsu infantil vai muito além da luta: ajuda no aprimoramento da coordenação motora, equilíbrio e
+      flexibilidade, ensina disciplina, respeito e trabalho em equipe, e melhora a autoconfiança das crianças —
+      sempre com instrutores experientes em ensino infantil, adaptando a aula à idade e às habilidades de cada
+      turma. É necessário o consentimento e o acompanhamento dos pais ou responsáveis.
+    </p>
+  </section>
+
+  <section class="container secao">
+    <h2>Perguntas frequentes</h2>
+    {faqInfantil.map((f) => <FaqItem pergunta={f.pergunta}>{f.resposta}</FaqItem>)}
+  </section>
+
+  <section class="container secao secao--final">
+    <p>
+      Para mais informações sobre o Projeto Brabinho, acompanhe o
+      <a href="https://www.instagram.com/projetobrabinho/" target="_blank" rel="noopener">Instagram</a>
+      ou fale direto com a secretaria da unidade mais perto de você.
+    </p>
+    <div class="secao__cta">
+      <a class="botao" href={cta} target="_blank" rel="noopener">
+        <Icon nome="whatsapp" tamanho={18} />
+        Chamar no WhatsApp
+      </a>
+      <a class="botao botao--contorno" href="/unidades/">Ver unidades</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao {
+    padding-block: var(--espaco-5);
+    max-width: 55rem;
+  }
+
+  .secao__intro {
+    color: var(--cor-texto-muted);
+  }
+
+  .grade-faixas {
+    display: grid;
+    gap: var(--espaco-2);
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: var(--espaco-3);
+  }
+
+  .bloco-faixa-etaria {
+    display: flex;
+    flex-direction: column;
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2);
+  }
+
+  .bloco-faixa-etaria span {
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .secao--final {
+    padding-bottom: var(--espaco-7);
+  }
+
+  .secao__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-3);
+  }
+
+  @media (min-width: 640px) {
+    .grade-faixas {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

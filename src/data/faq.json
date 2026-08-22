@@ -1,0 +1,47 @@
+[
+  {
+    "categoria": "geral",
+    "pergunta": "A primeira aula é gratuita?",
+    "resposta": "Sim. Em qualquer unidade da Brabo Jiu-Jitsu, sua primeira aula experimental é gratuita. É só escolher a unidade mais perto e chamar a secretaria no WhatsApp para agendar."
+  },
+  {
+    "categoria": "primeira-aula",
+    "pergunta": "O que esperar na primeira aula de Jiu-Jitsu?",
+    "resposta": "Na primeira aula você é recebido pelo professor responsável, faz um aquecimento leve e aprende alguns movimentos básicos junto com a turma. Não é preciso ter nenhuma experiência anterior — é normal treinar bem devagar e tirar dúvidas o tempo todo."
+  },
+  {
+    "categoria": "primeira-aula",
+    "pergunta": "O que levar e o que vestir na primeira aula?",
+    "resposta": "Uma roupa confortável (camiseta e shorts ou legging) já é suficiente para a primeira aula — não é preciso ter kimono. Leve uma garrafa de água e uma toalha pequena. Para as aulas seguintes, pergunte à secretaria da sua unidade se o kimono é necessário na modalidade escolhida."
+  },
+  {
+    "categoria": "infantil",
+    "pergunta": "A partir de que idade meu filho pode começar o Jiu-Jitsu?",
+    "resposta": "A idade mínima nas turmas infantis da Brabo Jiu-Jitsu é 3 anos. É recomendável que a criança passe por uma avaliação médica antes de começar, para garantir que não há nenhuma condição de saúde que precise de cuidado especial durante a prática."
+  },
+  {
+    "categoria": "adulto",
+    "pergunta": "Tenho mais de 40 anos e nunca pratiquei — posso começar agora?",
+    "resposta": "Sim. O Jiu-Jitsu pode ser praticado em qualquer idade e não exige nenhuma experiência anterior. As turmas de adulto recebem iniciantes de todos os perfis — o ritmo do treino se adapta a cada aluno."
+  },
+  {
+    "categoria": "faixas",
+    "pergunta": "Como funciona o sistema de faixas do Jiu-Jitsu?",
+    "resposta": "No Jiu-Jitsu adulto, a progressão passa pelas faixas branca, azul, roxa, marrom e preta, cada uma com graus marcados por barras no cabo da faixa. No infantil, a Brabo Jiu-Jitsu usa uma progressão própria antes da faixa branca adulta — branca, cinza, amarela, laranja e verde — de acordo com a idade e o tempo de treino."
+  },
+  {
+    "categoria": "planos",
+    "pergunta": "Quanto custa uma aula de Jiu-Jitsu em Juiz de Fora na Brabo?",
+    "resposta": "Os valores variam de acordo com a unidade e a modalidade escolhida. Como a primeira aula é gratuita, o jeito mais rápido de saber o valor certo pra você é chamar a secretaria da unidade mais perto no WhatsApp."
+  },
+  {
+    "categoria": "geral",
+    "pergunta": "Quais unidades da Brabo Jiu-Jitsu aceitam Gympass ou Wellhub?",
+    "resposta": "Hoje, a unidade Brooklyn Masmorra Cascatinha aceita Gympass/Wellhub. Para saber sobre as demais unidades, fale direto com a secretaria de cada uma."
+  },
+  {
+    "categoria": "geral",
+    "pergunta": "Onde ficam as unidades da Brabo Jiu-Jitsu?",
+    "resposta": "A Brabo Jiu-Jitsu tem 9 unidades em Juiz de Fora e região, além de um projeto social na Igreja do Evangelho Quadrangular em Nova Era. Veja o endereço completo de cada uma na página de Unidades."
+  }
+]

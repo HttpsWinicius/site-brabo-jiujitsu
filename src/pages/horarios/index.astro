@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Icon from "../../components/Icon.astro";
+import { linkWhatsapp } from "../../lib/whatsapp.js";
+import { formatarDias } from "../../lib/rotulos.js";
+import unidades from "../../data/unidades.json";
+import horarios from "../../data/horarios.json";
+
+const unidadesAtivas = unidades.filter((u) => u.ativa);
+const porUnidade = (slug) => horarios.find((h) => h.unidade === slug);
+---
+
+<BaseLayout
+  titulo="Horários das aulas | Brabo Jiu-Jitsu — Juiz de Fora"
+  descricao="Grade de horários de Jiu-Jitsu da Brabo por unidade em Juiz de Fora e região. Abra a sua unidade e veja os dias e horários das turmas."
+>
+  <PageHeader titulo="Horários das aulas">
+    Abra a sua unidade abaixo para ver os dias e horários das turmas. Onde a grade ainda não está fechada, fale
+    direto com a secretaria no WhatsApp.
+  </PageHeader>
+
+  <section class="container secao-horarios">
+    {
+      unidadesAtivas.map((u) => {
+        const h = porUnidade(u.slug);
+        const temGrade = h && !h.semGradeFixa && h.turmas.length > 0;
+        return (
+          <details class="unidade-horario">
+            <summary>
+              <span>
+                {u.nome} — {u.bairro}, {u.cidade}
+              </span>
+              <Icon nome="seta-baixo" tamanho={18} />
+            </summary>
+            <div class="unidade-horario__corpo">
+              {temGrade ? (
+                <ul class="lista-turmas">
+                  {h.turmas.map((t) => (
+                    <li>
+                      <strong>{t.nome}</strong>
+                      <span>
+                        {formatarDias(t.dias)} — {t.inicio}
+                        {t.fim ? `–${t.fim}` : "h"}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="aviso-grade">Grade ainda não fechada — fale com a secretaria e confirme o melhor horário.</p>
+              )}
+              <a class="botao botao--sm" href={`/unidades/${u.slug}/`}>
+                Ver unidade
+              </a>
+              {u.whatsapp && (
+                <a class="botao botao--contorno botao--sm" href={linkWhatsapp(u.whatsapp, u.mensagemWhatsapp)} target="_blank" rel="noopener">
+                  <Icon nome="whatsapp" tamanho={16} />
+                  WhatsApp
+                </a>
+              )}
+            </div>
+          </details>
+        );
+      })
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .secao-horarios {
+    max-width: 50rem;
+    padding-bottom: var(--espaco-7);
+  }
+
+  .unidade-horario {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2) var(--espaco-3);
+    margin-bottom: var(--espaco-2);
+  }
+
+  .unidade-horario summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+  }
+
+  .unidade-horario summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .unidade-horario__corpo {
+    margin-top: var(--espaco-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+    align-items: flex-start;
+  }
+
+  .lista-turmas {
+    list-style: none;
+    margin: 0 0 var(--espaco-1);
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+  }
+
+  .lista-turmas li {
+    display: flex;
+    flex-direction: column;
+    background: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-1) var(--espaco-2);
+  }
+
+  .lista-turmas span {
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .aviso-grade {
+    color: var(--cor-texto-muted);
+    margin: 0 0 var(--espaco-1);
+  }
+</style>

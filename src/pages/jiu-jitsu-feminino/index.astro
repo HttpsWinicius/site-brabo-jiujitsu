@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Icon from "../../components/Icon.astro";
+import { linkWhatsapp } from "../../lib/whatsapp.js";
+import site from "../../data/site.json";
+import imagem from "../../assets/img/feminino.jpeg";
+
+const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+
+const beneficios = [
+  { titulo: "Autodefesa", texto: "Desenvolvimento de habilidades práticas de autodefesa, com mais segurança pessoal." },
+  { titulo: "Condicionamento físico", texto: "Ganhos de força, resistência, flexibilidade e condicionamento cardiovascular." },
+  { titulo: "Confiança", texto: "Mais autoconfiança e autoestima através da superação de desafios físicos e mentais." },
+  { titulo: "Empoderamento", texto: "Fortalecimento mental e emocional, com sensação real de empoderamento pessoal." },
+  { titulo: "Corpo e mente saudáveis", texto: "Saúde física e mental cuidadas pela prática regular do esporte." },
+  { titulo: "Disciplina", texto: "A prática regular ajuda a cultivar disciplina, no tatame e fora dele." },
+];
+---
+
+<BaseLayout
+  titulo="Jiu-Jitsu Feminino em Juiz de Fora | Brabo Jiu-Jitsu"
+  descricao="Jiu-Jitsu feminino em Juiz de Fora: autodefesa, confiança e uma comunidade de mulheres treinando juntas. Primeira aula grátis."
+>
+  <PageHero imagem={imagem} alt="Grupo de alunas da Brabo Jiu-Jitsu reunidas ao ar livre" titulo="Jiu-Jitsu Feminino">
+    <Fragment slot="intro">Autodefesa, condicionamento e confiança — numa comunidade de mulheres treinando juntas.</Fragment>
+    <Fragment slot="acoes">
+      <a class="botao" href={cta} target="_blank" rel="noopener">
+        <Icon nome="whatsapp" tamanho={18} />
+        Agende a aula experimental grátis
+      </a>
+    </Fragment>
+  </PageHero>
+
+  <section class="container secao">
+    <h2>Por que praticar Jiu-Jitsu?</h2>
+    <p class="secao__intro">Praticar Jiu-Jitsu traz benefícios específicos para mulheres, dentro e fora do tatame:</p>
+    <div class="grade-beneficios">
+      {
+        beneficios.map((b) => (
+          <div class="bloco-beneficio">
+            <h3>{b.titulo}</h3>
+            <p>{b.texto}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container secao secao--final">
+    <p>Junte-se a uma turma feminina na unidade mais perto de você — a primeira aula é gratuita.</p>
+    <div class="secao__cta">
+      <a class="botao" href={cta} target="_blank" rel="noopener">
+        <Icon nome="whatsapp" tamanho={18} />
+        Chamar no WhatsApp
+      </a>
+      <a class="botao botao--contorno" href="/unidades/">Ver unidades</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao {
+    padding-block: var(--espaco-5);
+    max-width: 60rem;
+  }
+
+  .secao__intro {
+    color: var(--cor-texto-muted);
+  }
+
+  .grade-beneficios {
+    display: grid;
+    gap: var(--espaco-2);
+    grid-template-columns: 1fr;
+    margin-top: var(--espaco-3);
+  }
+
+  .bloco-beneficio {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+  }
+
+  .bloco-beneficio h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+    color: var(--cor-marca-hover);
+  }
+
+  .bloco-beneficio p {
+    margin: 0;
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .secao--final {
+    padding-bottom: var(--espaco-7);
+  }
+
+  .secao__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-3);
+  }
+
+  @media (min-width: 640px) {
+    .grade-beneficios {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .grade-beneficios {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

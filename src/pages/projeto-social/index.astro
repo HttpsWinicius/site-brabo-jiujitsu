@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import Icon from "../../components/Icon.astro";
+import unidades from "../../data/unidades.json";
+import imagem from "../../assets/img/projeto-social.jpeg";
+
+const unidadeProjeto = unidades.find((u) => u.projetoSocial);
+const pixCopiaECola =
+  "00020126720014br.gov.bcb.pix01368dd011de-f622-494c-9a9c-45cafe8b380a0210PGTSITEONG5204000053039865802BR5901N6001C62070503***63045CD0";
+---
+
+<BaseLayout
+  titulo="Projeto Social de Jiu-Jitsu | Brabo Jiu-Jitsu — Juiz de Fora"
+  descricao="Jiu-Jitsu gratuito para quem não teria acesso, na Igreja do Evangelho Quadrangular em Nova Era, Juiz de Fora. Saiba como apoiar."
+>
+  <PageHero imagem={imagem} alt="Grande grupo de alunos e professores da Brabo Jiu-Jitsu reunidos após um evento" titulo="Projeto Social Brabo Jiu-Jitsu">
+    <Fragment slot="intro">
+      Jiu-Jitsu gratuito para quem não teria acesso, ensinando não só a arte marcial, mas disciplina, respeito e
+      oportunidade.
+    </Fragment>
+  </PageHero>
+
+  <section class="container secao">
+    <h2>O que é o projeto</h2>
+    <p class="secao__intro">
+      O projeto social da Brabo Jiu-Jitsu existe para ensinar e dar oportunidades a atletas de Jiu-Jitsu, buscando
+      desenvolver não só habilidades atléticas, mas também o crescimento pessoal e educacional de cada aluno,
+      oferecendo suporte para ajudá-los a atingir seu potencial máximo no esporte e na vida.
+    </p>
+    <dl class="lista-valores">
+      <div>
+        <dt>Programas de treinamento</dt>
+        <dd>Treinos estruturados para atletas em diferentes níveis, do iniciante ao avançado.</dd>
+      </div>
+      <div>
+        <dt>Assistência financeira</dt>
+        <dd>
+          Apoio para atletas que enfrentam dificuldades econômicas, incluindo custos com taxas de competições,
+          uniformes e despesas relacionadas ao treinamento.
+        </dd>
+      </div>
+    </dl>
+  </section>
+
+  {
+    unidadeProjeto && (
+      <section class="container secao">
+        <h2>Onde treinar</h2>
+        <p class="secao__intro">
+          O projeto funciona na unidade {unidadeProjeto.nome}, em {unidadeProjeto.bairro}, {unidadeProjeto.cidade}.
+        </p>
+        <a class="botao botao--contorno" href={`/unidades/${unidadeProjeto.slug}/`}>
+          Ver endereço e horários
+        </a>
+      </section>
+    )
+  }
+
+  <section class="container secao">
+    <h2>Como apoiar</h2>
+    <p class="secao__intro">Você pode ser um apoiador, doando qualquer quantia, a qualquer tempo, via Pix:</p>
+    <div class="bloco-pix">
+      <img src="/assets/img/qrcode-ong.png" alt="QR Code Pix para doação ao projeto social Brabo Jiu-Jitsu" width="180" height="180" loading="lazy" />
+      <div>
+        <p class="rotulo-pix">Pix copia e cola:</p>
+        <code id="texto-pix">{pixCopiaECola}</code>
+        <button type="button" class="botao botao--contorno botao--sm" id="botao-copiar-pix">
+          <Icon nome="whatsapp" tamanho={16} />
+          Copiar código Pix
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const botao = document.getElementById("botao-copiar-pix");
+  const texto = document.getElementById("texto-pix");
+
+  botao?.addEventListener("click", async () => {
+    if (!texto?.textContent) return;
+    try {
+      await navigator.clipboard.writeText(texto.textContent.trim());
+      botao.textContent = "Copiado!";
+      setTimeout(() => (botao.textContent = "Copiar código Pix"), 2000);
+    } catch {
+      // navegador sem suporte a Clipboard API — o código já está visível pra copiar manualmente
+    }
+  });
+</script>
+
+<style>
+  .secao {
+    padding-block: var(--espaco-5);
+    max-width: 55rem;
+  }
+
+  .secao__intro {
+    color: var(--cor-texto-muted);
+  }
+
+  .lista-valores {
+    display: grid;
+    gap: var(--espaco-2);
+    margin: var(--espaco-3) 0 0;
+    grid-template-columns: 1fr;
+  }
+
+  .lista-valores > div {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+  }
+
+  .lista-valores dt {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    margin-bottom: var(--espaco-1);
+  }
+
+  .lista-valores dd {
+    margin: 0;
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .bloco-pix {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--espaco-3);
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-3);
+    margin-top: var(--espaco-3);
+  }
+
+  .rotulo-pix {
+    margin: 0 0 var(--espaco-1);
+    font-weight: 600;
+  }
+
+  #texto-pix {
+    display: block;
+    word-break: break-all;
+    color: var(--cor-texto-muted);
+    font-size: 0.8rem;
+    margin-bottom: var(--espaco-2);
+  }
+
+  @media (min-width: 640px) {
+    .lista-valores {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

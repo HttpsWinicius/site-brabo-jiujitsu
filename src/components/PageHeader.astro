@@ -1,0 +1,23 @@
+---
+interface Props {
+  titulo: string;
+}
+const { titulo } = Astro.props;
+---
+
+<header class="container topo-pagina">
+  <h1>{titulo}</h1>
+  <p><slot /></p>
+</header>
+
+<style>
+  .topo-pagina {
+    padding-block: var(--espaco-6) var(--espaco-4);
+    max-width: 60rem;
+  }
+
+  .topo-pagina p {
+    color: var(--cor-texto-muted);
+    max-width: 65ch;
+  }
+</style>

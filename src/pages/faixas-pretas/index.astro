@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import faixasPretas from "../../data/faixas-pretas.json";
+---
+
+<BaseLayout
+  titulo="Faixas-pretas formadas | Brabo Jiu-Jitsu"
+  descricao="Os alunos formados faixa-preta pela Brabo Jiu-Jitsu desde 2013, com data de graduação de cada um."
+>
+  <PageHeader titulo="Faixas-pretas formadas">
+    A conquista da faixa preta representa anos de dedicação, prática e superação. Estes são os alunos formados
+    faixa-preta pela Brabo Jiu-Jitsu.
+  </PageHeader>
+
+  <section class="container lista-faixas-pretas">
+    <ol>
+      {
+        faixasPretas.map((a) => (
+          <li>
+            <span class="nome">{a.nome}</span>
+            <span class="data">Graduado em {a.dataGraduacao}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .lista-faixas-pretas {
+    max-width: 45rem;
+    padding-bottom: var(--espaco-7);
+  }
+
+  .lista-faixas-pretas ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-1);
+  }
+
+  .lista-faixas-pretas li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espaco-2);
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-left: 3px solid var(--cor-marca);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2);
+  }
+
+  .nome {
+    font-weight: 600;
+  }
+
+  .data {
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+</style>

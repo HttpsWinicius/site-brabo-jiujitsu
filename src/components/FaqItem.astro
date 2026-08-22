@@ -1,0 +1,38 @@
+---
+interface Props {
+  pergunta: string;
+}
+const { pergunta } = Astro.props;
+---
+
+<details class="faq-item">
+  <summary>{pergunta}</summary>
+  <div class="faq-item__resposta">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .faq-item {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2) var(--espaco-3);
+    margin-bottom: var(--espaco-2);
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--fonte-titulo);
+  }
+
+  .faq-item__resposta {
+    margin-top: var(--espaco-1);
+    color: var(--cor-texto-muted);
+  }
+
+  .faq-item__resposta :global(p) {
+    margin: 0;
+  }
+</style>

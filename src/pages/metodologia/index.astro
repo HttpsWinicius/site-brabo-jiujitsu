@@ -1,0 +1,149 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageHeader from "../../components/PageHeader.astro";
+
+const modulosAdulto = [
+  { faixa: "branca", texto: "4 módulos em sequência, totalizando 100 posições." },
+  { faixa: "azul", texto: "4 módulos divididos em pé, guardeiro, passador, 100kg, montada e costas (ataque e defesa)." },
+  { faixa: "roxa", texto: "4 módulos divididos em pé, guardeiro, passador, 100kg, montada e costas (ataque e defesa)." },
+  { faixa: "marrom", texto: "4 módulos em sequência, totalizando 100 posições." },
+  { faixa: "preta", texto: "4 módulos NOGI em sequência." },
+];
+
+const modulosInfantil = ["branca", "cinza", "amarela", "laranja", "verde"];
+---
+
+<BaseLayout
+  titulo="Metodologia Brabo Jiu-Jitsu | Juiz de Fora"
+  descricao="Como a Brabo Jiu-Jitsu ensina cada faixa, adulto e infantil, com módulos técnicos desde 2017."
+>
+  <PageHeader titulo="Metodologia Brabo">
+    Desde 2017 usamos uma metodologia de módulos por faixa, pra dar um acompanhamento mais próximo do que cada aluno
+    já entende de técnica.
+  </PageHeader>
+
+  <section class="container secao">
+    <h2>Jiu-Jitsu Adulto</h2>
+    <p class="secao__intro">
+      Com o surgimento dos módulos, temos um acompanhamento individual melhor do nível de entendimento da técnica
+      passada para o coletivo.
+    </p>
+    <div class="lista-modulos">
+      {
+        modulosAdulto.map((m) => (
+          <div class="bloco-modulo">
+            <span class={`etiqueta-faixa etiqueta-faixa--${m.faixa}`}>Faixa {m.faixa}</span>
+            <p>{m.texto}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container secao">
+    <h2>Jiu-Jitsu Infantil — Projeto Brabinho</h2>
+    <p class="secao__intro">
+      A modalidade abrange crianças e jovens entre 3 e 18 anos, com foco no desenvolvimento físico, mental e
+      emocional. Da faixa branca à verde, o trabalho é nas qualidades físicas, respeito, atenção e disciplina,
+      dominando a metodologia dos módulos infantis do básico ao avançado — melhorando confiança, coragem e
+      autoestima, com evolução corporal e mental em conjunto.
+    </p>
+    <div class="lista-modulos lista-modulos--infantil">
+      {modulosInfantil.map((f) => <span class={`etiqueta-faixa etiqueta-faixa--${f}`}>Faixa {f}</span>)}
+    </div>
+  </section>
+
+  <section class="container secao secao--final">
+    <h2>Quer aprender a metodologia?</h2>
+    <p class="secao__intro">
+      Acompanhe o Instagram
+      <a href="https://www.instagram.com/metodologiajiujitsu/" target="_blank" rel="noopener">
+        @metodologiajiujitsu
+      </a>
+      ou conheça o curso completo no
+      <a href="https://hotmart.com/pt-br/club/metodologia-jiu-jitsu/products" target="_blank" rel="noopener">
+        Hotmart
+      </a>.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao {
+    padding-block: var(--espaco-5);
+    max-width: 55rem;
+  }
+
+  .secao--final {
+    padding-bottom: var(--espaco-7);
+  }
+
+  .secao__intro {
+    color: var(--cor-texto-muted);
+  }
+
+  .lista-modulos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-3);
+  }
+
+  .lista-modulos--infantil {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .bloco-modulo {
+    background: var(--cor-fundo-alt);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-2) var(--espaco-3);
+  }
+
+  .bloco-modulo p {
+    margin: var(--espaco-1) 0 0;
+    color: var(--cor-texto-muted);
+    font-size: 0.9rem;
+  }
+
+  .etiqueta-faixa {
+    display: inline-block;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    background: var(--cor-fundo-elevado);
+  }
+
+  .etiqueta-faixa--branca {
+    color: var(--cor-faixa-branca);
+  }
+  .etiqueta-faixa--cinza {
+    color: var(--cor-faixa-cinza);
+  }
+  .etiqueta-faixa--amarela {
+    color: var(--cor-faixa-amarela);
+  }
+  .etiqueta-faixa--laranja {
+    color: var(--cor-faixa-laranja);
+  }
+  .etiqueta-faixa--verde {
+    color: var(--cor-faixa-verde);
+  }
+  .etiqueta-faixa--azul {
+    color: var(--cor-faixa-azul);
+  }
+  .etiqueta-faixa--roxa {
+    color: var(--cor-faixa-roxa);
+  }
+  .etiqueta-faixa--marrom {
+    color: var(--cor-faixa-marrom);
+  }
+  .etiqueta-faixa--preta {
+    color: #fff;
+    background: #111;
+  }
+</style>

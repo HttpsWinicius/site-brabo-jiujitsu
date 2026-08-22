@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imagem: ImageMetadata;
+  alt: string;
+  titulo: string;
+  posicao?: string;
+}
+
+const { imagem, alt, titulo, posicao = "center" } = Astro.props;
+---
+
+<section class="pagina-hero">
+  <Image
+    class="pagina-hero__imagem"
+    src={imagem}
+    alt={alt}
+    fetchpriority="high"
+    loading="eager"
+    widths={[640, 1024, 1600]}
+    sizes="100vw"
+    style={`object-position: ${posicao}`}
+  />
+  <div class="pagina-hero__sombra" aria-hidden="true"></div>
+  <div class="container pagina-hero__conteudo">
+    <h1>{titulo}</h1>
+    <p><slot name="intro" /></p>
+    <div class="pagina-hero__acoes"><slot name="acoes" /></div>
+  </div>
+</section>
+
+<style>
+  .pagina-hero {
+    position: relative;
+    min-height: 22rem;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+  }
+
+  .pagina-hero__imagem {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pagina-hero__sombra {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(18, 18, 20, 0.5) 0%, rgba(18, 18, 20, 0.88) 92%);
+  }
+
+  .pagina-hero__conteudo {
+    position: relative;
+    padding-block: var(--espaco-5) var(--espaco-4);
+    max-width: 46rem;
+  }
+
+  .pagina-hero__conteudo p {
+    color: #f2f1ed;
+    max-width: 42rem;
+  }
+
+  .pagina-hero__acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin-top: var(--espaco-2);
+  }
+</style>
