@@ -1,16 +1,22 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import UnidadeCard from "../../components/UnidadeCard.astro";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import site from "../../data/site.json";
 import unidades from "../../data/unidades.json";
 
 const unidadesAtivas = unidades.filter((u) => u.ativa);
 const linkMapaGeral = "https://www.google.com/maps/search/Brabo+Jiu-Jitsu+Juiz+de+Fora";
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Unidades", url: `${site.urlCanonica}/unidades/` },
+]);
 ---
 
 <BaseLayout
   titulo="Unidades da Brabo Jiu-Jitsu | Juiz de Fora e Região"
   descricao={`${unidadesAtivas.length} unidades de Jiu-Jitsu em Juiz de Fora e região. Veja endereço, WhatsApp e horários de cada uma e agende sua aula grátis.`}
+  jsonLd={jsonLd}
 >
   <header class="container topo-pagina">
     <h1>Unidades da Brabo Jiu-Jitsu</h1>

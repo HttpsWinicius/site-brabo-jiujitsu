@@ -4,17 +4,26 @@ import PageHero from "../../components/PageHero.astro";
 import FaqItem from "../../components/FaqItem.astro";
 import Icon from "../../components/Icon.astro";
 import { linkWhatsapp } from "../../lib/whatsapp.js";
+import { schemaFaqPage, schemaBreadcrumb } from "../../lib/jsonld.js";
 import site from "../../data/site.json";
 import faq from "../../data/faq.json";
 import imagem from "../../assets/img/adulto.jpeg";
 
 const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
 const faqAdulto = faq.filter((f) => ["adulto", "primeira-aula"].includes(f.categoria));
+const jsonLd = [
+  schemaFaqPage(faqAdulto),
+  schemaBreadcrumb([
+    { nome: "Início", url: site.urlCanonica },
+    { nome: "Jiu-Jitsu Adulto", url: `${site.urlCanonica}/jiu-jitsu-adulto/` },
+  ]),
+];
 ---
 
 <BaseLayout
   titulo="Jiu-Jitsu para Iniciantes em Juiz de Fora | Brabo"
   descricao="Jiu-Jitsu adulto em Juiz de Fora para iniciantes e avançados, em qualquer idade. Primeira aula experimental grátis."
+  jsonLd={jsonLd}
 >
   <PageHero imagem={imagem} alt="Equipe Brabo Jiu-Jitsu reunida após conquistar o título de campeã no 4º Campeonato Mineiro" titulo="Jiu-Jitsu Adulto" posicao="center 20%">
     <Fragment slot="intro">

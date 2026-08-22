@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brabojiujitsu.com/sitemap-index.xml

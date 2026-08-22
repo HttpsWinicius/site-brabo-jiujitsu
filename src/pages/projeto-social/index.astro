@@ -2,17 +2,24 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 import Icon from "../../components/Icon.astro";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import unidades from "../../data/unidades.json";
+import site from "../../data/site.json";
 import imagem from "../../assets/img/projeto-social.jpeg";
 
 const unidadeProjeto = unidades.find((u) => u.projetoSocial);
 const pixCopiaECola =
   "00020126720014br.gov.bcb.pix01368dd011de-f622-494c-9a9c-45cafe8b380a0210PGTSITEONG5204000053039865802BR5901N6001C62070503***63045CD0";
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Projeto Social", url: `${site.urlCanonica}/projeto-social/` },
+]);
 ---
 
 <BaseLayout
   titulo="Projeto Social de Jiu-Jitsu | Brabo Jiu-Jitsu — Juiz de Fora"
   descricao="Jiu-Jitsu gratuito para quem não teria acesso, na Igreja do Evangelho Quadrangular em Nova Era, Juiz de Fora. Saiba como apoiar."
+  jsonLd={jsonLd}
 >
   <PageHero imagem={imagem} alt="Grande grupo de alunos e professores da Brabo Jiu-Jitsu reunidos após um evento" titulo="Projeto Social Brabo Jiu-Jitsu">
     <Fragment slot="intro">

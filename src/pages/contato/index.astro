@@ -3,14 +3,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Icon from "../../components/Icon.astro";
 import { linkWhatsapp } from "../../lib/whatsapp.js";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import site from "../../data/site.json";
 
 const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Contato", url: `${site.urlCanonica}/contato/` },
+]);
 ---
 
 <BaseLayout
   titulo="Contato | Brabo Jiu-Jitsu — Juiz de Fora"
   descricao="Fale com a secretaria da Brabo Jiu-Jitsu pelo WhatsApp, telefone ou e-mail e agende sua aula experimental grátis."
+  jsonLd={jsonLd}
 >
   <PageHeader titulo="Fale com a gente">
     Prefere falar direto com a unidade mais perto de você? Veja o contato de cada uma em <a href="/unidades/">Unidades</a>.
@@ -36,7 +42,7 @@ const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao
 
   <section class="container secao-final">
     <p>
-      Para valores e planos, fale direto com a secretaria pelo WhatsApp. Para horários de treino, veja a página de
+      Para valores e planos, fale direto com a secretaria pelo WhatsApp. Para horários de treino, veja a página de{" "}
       <a href="/horarios/">Horários</a>.
     </p>
     <a class="botao" href={cta} target="_blank" rel="noopener">

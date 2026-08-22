@@ -2,12 +2,23 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import FaqItem from "../../components/FaqItem.astro";
+import { schemaFaqPage, schemaBreadcrumb } from "../../lib/jsonld.js";
+import site from "../../data/site.json";
 import faq from "../../data/faq.json";
+
+const jsonLd = [
+  schemaFaqPage(faq),
+  schemaBreadcrumb([
+    { nome: "Início", url: site.urlCanonica },
+    { nome: "Perguntas frequentes", url: `${site.urlCanonica}/perguntas-frequentes/` },
+  ]),
+];
 ---
 
 <BaseLayout
   titulo="Perguntas Frequentes | Brabo Jiu-Jitsu"
   descricao="Primeira aula, idade mínima, o que vestir, sistema de faixas e valores: tire suas dúvidas sobre o Jiu-Jitsu na Brabo."
+  jsonLd={jsonLd}
 >
   <PageHeader titulo="Perguntas frequentes">
     Tudo o que quem está pensando em começar o Jiu-Jitsu costuma perguntar antes da primeira aula.

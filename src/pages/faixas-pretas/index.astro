@@ -1,12 +1,20 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import faixasPretas from "../../data/faixas-pretas.json";
+import site from "../../data/site.json";
+
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Faixas-pretas", url: `${site.urlCanonica}/faixas-pretas/` },
+]);
 ---
 
 <BaseLayout
   titulo="Faixas-pretas formadas | Brabo Jiu-Jitsu"
   descricao="Os alunos formados faixa-preta pela Brabo Jiu-Jitsu desde 2013, com data de graduação de cada um."
+  jsonLd={jsonLd}
 >
   <PageHeader titulo="Faixas-pretas formadas">
     A conquista da faixa preta representa anos de dedicação, prática e superação. Estes são os alunos formados

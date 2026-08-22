@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/contato.html", "destination": "/contato/", "permanent": true },
+    { "source": "/filiais_brabo.html", "destination": "/unidades/", "permanent": true },
+    { "source": "/horario_brabo.html", "destination": "/horarios/", "permanent": true },
+    { "source": "/faixas_pretas.html", "destination": "/faixas-pretas/", "permanent": true },
+    { "source": "/metodologia.html", "destination": "/metodologia/", "permanent": true },
+    { "source": "/ong_jiujitsu.html", "destination": "/projeto-social/", "permanent": true },
+    { "source": "/projeto_brabinho.html", "destination": "/jiu-jitsu-infantil/", "permanent": true },
+    { "source": "/projeto_jiujitsu_feminino.html", "destination": "/jiu-jitsu-feminino/", "permanent": true },
+    { "source": "/sobre.html", "destination": "/sobre/", "permanent": true }
+  ]
+}

@@ -1,8 +1,14 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import site from "../../data/site.json";
 import imagem from "../../assets/img/sobre.jpeg";
+
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Sobre", url: `${site.urlCanonica}/sobre/` },
+]);
 
 const valores = [
   { nome: "Bravura", texto: "Coragem durante a prática: enfrentar desafios com determinação, resiliência e firmeza em situações difíceis na luta." },
@@ -26,6 +32,7 @@ const conquistas = [
 <BaseLayout
   titulo="Sobre a Brabo Jiu-Jitsu | Juiz de Fora"
   descricao="A história da Brabo Jiu-Jitsu, de 2011 até hoje: valores, conquistas e a equipe por trás de 9 unidades em Juiz de Fora."
+  jsonLd={jsonLd}
 >
   <PageHero imagem={imagem} alt="Retrato do professor Ramon Medeiros, fundador da Brabo Jiu-Jitsu" titulo="Nossa história" posicao="center 15%">
     <Fragment slot="intro">{site.fundacao.texto}</Fragment>

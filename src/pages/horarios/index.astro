@@ -4,16 +4,23 @@ import PageHeader from "../../components/PageHeader.astro";
 import Icon from "../../components/Icon.astro";
 import { linkWhatsapp } from "../../lib/whatsapp.js";
 import { formatarDias } from "../../lib/rotulos.js";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import unidades from "../../data/unidades.json";
 import horarios from "../../data/horarios.json";
+import site from "../../data/site.json";
 
 const unidadesAtivas = unidades.filter((u) => u.ativa);
 const porUnidade = (slug) => horarios.find((h) => h.unidade === slug);
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Horários", url: `${site.urlCanonica}/horarios/` },
+]);
 ---
 
 <BaseLayout
   titulo="Horários das aulas | Brabo Jiu-Jitsu — Juiz de Fora"
   descricao="Grade de horários de Jiu-Jitsu da Brabo por unidade em Juiz de Fora e região. Abra a sua unidade e veja os dias e horários das turmas."
+  jsonLd={jsonLd}
 >
   <PageHeader titulo="Horários das aulas">
     Abra a sua unidade abaixo para ver os dias e horários das turmas. Onde a grade ainda não está fechada, fale

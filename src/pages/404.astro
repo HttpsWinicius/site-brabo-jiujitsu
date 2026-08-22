@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import UnidadeCard from "../components/UnidadeCard.astro";
+import unidades from "../data/unidades.json";
+
+const unidadesAtivas = unidades.filter((u) => u.ativa).slice(0, 3);
+---
+
+<BaseLayout titulo="Página não encontrada | Brabo Jiu-Jitsu" descricao="Essa página não existe mais. Encontre a unidade Brabo Jiu-Jitsu mais perto de você.">
+  <section class="container secao-404">
+    <h1>Página não encontrada</h1>
+    <p>O endereço que você tentou acessar não existe (mais). Talvez você esteja procurando por uma dessas páginas:</p>
+    <div class="links-rapidos">
+      <a class="botao botao--contorno" href="/">Início</a>
+      <a class="botao botao--contorno" href="/unidades/">Todas as unidades</a>
+      <a class="botao botao--contorno" href="/horarios/">Horários</a>
+      <a class="botao botao--contorno" href="/contato/">Contato</a>
+    </div>
+
+    <h2>Ou escolha uma unidade perto de você</h2>
+    <div class="grade-unidades">
+      {unidadesAtivas.map((u) => <UnidadeCard unidade={u} />)}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .secao-404 {
+    padding-block: var(--espaco-6) var(--espaco-7);
+    max-width: 60rem;
+  }
+
+  .secao-404 p {
+    color: var(--cor-texto-muted);
+    max-width: 55ch;
+  }
+
+  .links-rapidos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaco-2);
+    margin: var(--espaco-3) 0 var(--espaco-6);
+  }
+
+  .grade-unidades {
+    display: grid;
+    gap: var(--espaco-3);
+    grid-template-columns: 1fr;
+    margin-top: var(--espaco-3);
+  }
+
+  @media (min-width: 700px) {
+    .grade-unidades {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

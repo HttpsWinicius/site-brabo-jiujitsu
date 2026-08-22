@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import UnidadeCard from "../components/UnidadeCard.astro";
 import Icon from "../components/Icon.astro";
 import { linkWhatsapp } from "../lib/whatsapp.js";
+import { schemaOrganization } from "../lib/jsonld.js";
 import site from "../data/site.json";
 import unidades from "../data/unidades.json";
 import heroHome from "../assets/img/hero-home.jpeg";
@@ -11,6 +12,7 @@ import heroHome from "../assets/img/hero-home.jpeg";
 const unidadesAtivas = unidades.filter((u) => u.ativa);
 const unidadesDestaque = unidadesAtivas.slice(0, 4);
 const ctaGeral = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+const jsonLd = schemaOrganization(site);
 
 const modalidades = [
   {
@@ -45,6 +47,7 @@ const conquistas = [
 <BaseLayout
   titulo="Jiu-Jitsu em Juiz de Fora | Brabo Jiu-Jitsu"
   descricao="9 unidades de Jiu-Jitsu em Juiz de Fora e região. Primeira aula experimental grátis — agende pelo WhatsApp e treine perto de você."
+  jsonLd={jsonLd}
 >
   <section class="hero">
     <Image

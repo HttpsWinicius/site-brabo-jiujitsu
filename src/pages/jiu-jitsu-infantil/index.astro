@@ -4,12 +4,20 @@ import PageHero from "../../components/PageHero.astro";
 import FaqItem from "../../components/FaqItem.astro";
 import Icon from "../../components/Icon.astro";
 import { linkWhatsapp } from "../../lib/whatsapp.js";
+import { schemaFaqPage, schemaBreadcrumb } from "../../lib/jsonld.js";
 import site from "../../data/site.json";
 import faq from "../../data/faq.json";
 import imagem from "../../assets/img/infantil.jpeg";
 
 const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
 const faqInfantil = faq.filter((f) => f.categoria === "infantil" || f.pergunta.includes("gratuita"));
+const jsonLd = [
+  schemaFaqPage(faqInfantil),
+  schemaBreadcrumb([
+    { nome: "Início", url: site.urlCanonica },
+    { nome: "Jiu-Jitsu Infantil", url: `${site.urlCanonica}/jiu-jitsu-infantil/` },
+  ]),
+];
 
 const faixasEtarias = [
   { faixa: "3 a 6 anos", turma: "Mirim" },
@@ -22,6 +30,7 @@ const faixasEtarias = [
 <BaseLayout
   titulo="Jiu-Jitsu Infantil em Juiz de Fora | Brabo Jiu-Jitsu"
   descricao="Projeto Brabinho: Jiu-Jitsu infantil a partir de 3 anos em Juiz de Fora. Disciplina, coordenação motora e primeira aula grátis."
+  jsonLd={jsonLd}
 >
   <PageHero imagem={imagem} alt="Crianças e professores em cerimônia de graduação de faixa do Projeto Brabinho" titulo="Jiu-Jitsu Infantil — Projeto Brabinho">
     <Fragment slot="intro">
@@ -71,8 +80,8 @@ const faixasEtarias = [
 
   <section class="container secao secao--final">
     <p>
-      Para mais informações sobre o Projeto Brabinho, acompanhe o
-      <a href="https://www.instagram.com/projetobrabinho/" target="_blank" rel="noopener">Instagram</a>
+      Para mais informações sobre o Projeto Brabinho, acompanhe o{" "}
+      <a href="https://www.instagram.com/projetobrabinho/" target="_blank" rel="noopener">Instagram</a>{" "}
       ou fale direto com a secretaria da unidade mais perto de você.
     </p>
     <div class="secao__cta">

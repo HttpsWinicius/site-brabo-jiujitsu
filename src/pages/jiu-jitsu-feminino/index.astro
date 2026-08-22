@@ -3,10 +3,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 import Icon from "../../components/Icon.astro";
 import { linkWhatsapp } from "../../lib/whatsapp.js";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import site from "../../data/site.json";
 import imagem from "../../assets/img/feminino.jpeg";
 
 const cta = linkWhatsapp(site.nap.whatsappPrincipal, site.mensagemWhatsappPadrao);
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Jiu-Jitsu Feminino", url: `${site.urlCanonica}/jiu-jitsu-feminino/` },
+]);
 
 const beneficios = [
   { titulo: "Autodefesa", texto: "Desenvolvimento de habilidades práticas de autodefesa, com mais segurança pessoal." },
@@ -21,6 +26,7 @@ const beneficios = [
 <BaseLayout
   titulo="Jiu-Jitsu Feminino em Juiz de Fora | Brabo Jiu-Jitsu"
   descricao="Jiu-Jitsu feminino em Juiz de Fora: autodefesa, confiança e uma comunidade de mulheres treinando juntas. Primeira aula grátis."
+  jsonLd={jsonLd}
 >
   <PageHero imagem={imagem} alt="Grupo de alunas da Brabo Jiu-Jitsu reunidas ao ar livre" titulo="Jiu-Jitsu Feminino">
     <Fragment slot="intro">Autodefesa, condicionamento e confiança — numa comunidade de mulheres treinando juntas.</Fragment>

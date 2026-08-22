@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
+import site from "../../data/site.json";
+
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Metodologia", url: `${site.urlCanonica}/metodologia/` },
+]);
 
 const modulosAdulto = [
   { faixa: "branca", texto: "4 módulos em sequência, totalizando 100 posições." },
@@ -16,6 +23,7 @@ const modulosInfantil = ["branca", "cinza", "amarela", "laranja", "verde"];
 <BaseLayout
   titulo="Metodologia Brabo Jiu-Jitsu | Juiz de Fora"
   descricao="Como a Brabo Jiu-Jitsu ensina cada faixa, adulto e infantil, com módulos técnicos desde 2017."
+  jsonLd={jsonLd}
 >
   <PageHeader titulo="Metodologia Brabo">
     Desde 2017 usamos uma metodologia de módulos por faixa, pra dar um acompanhamento mais próximo do que cada aluno
@@ -56,11 +64,11 @@ const modulosInfantil = ["branca", "cinza", "amarela", "laranja", "verde"];
   <section class="container secao secao--final">
     <h2>Quer aprender a metodologia?</h2>
     <p class="secao__intro">
-      Acompanhe o Instagram
+      Acompanhe o Instagram{" "}
       <a href="https://www.instagram.com/metodologiajiujitsu/" target="_blank" rel="noopener">
         @metodologiajiujitsu
-      </a>
-      ou conheça o curso completo no
+      </a>{" "}
+      ou conheça o curso completo no{" "}
       <a href="https://hotmart.com/pt-br/club/metodologia-jiu-jitsu/products" target="_blank" rel="noopener">
         Hotmart
       </a>.

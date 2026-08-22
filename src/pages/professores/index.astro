@@ -2,17 +2,24 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import ProfessorCard from "../../components/ProfessorCard.astro";
+import { schemaBreadcrumb } from "../../lib/jsonld.js";
 import professores from "../../data/professores.json";
+import site from "../../data/site.json";
 
 const ordemFaixa = { preta: 0, marrom: 1, roxa: 2, azul: 3, branca: 4 };
 const ativos = professores
   .filter((p) => p.ativo)
   .sort((a, b) => (ordemFaixa[a.faixa] ?? 9) - (ordemFaixa[b.faixa] ?? 9));
+const jsonLd = schemaBreadcrumb([
+  { nome: "Início", url: site.urlCanonica },
+  { nome: "Professores", url: `${site.urlCanonica}/professores/` },
+]);
 ---
 
 <BaseLayout
   titulo="Professores | Brabo Jiu-Jitsu — Juiz de Fora"
   descricao="Conheça o corpo docente da Brabo Jiu-Jitsu: professores faixa-preta, marrom e roxa em Juiz de Fora e região."
+  jsonLd={jsonLd}
 >
   <PageHeader titulo="Nossos professores">
     {ativos.length} professores formam o corpo docente da Brabo Jiu-Jitsu, distribuídos entre as unidades de Juiz de

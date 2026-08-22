@@ -4,9 +4,11 @@ import MapaEmbed from "../../components/MapaEmbed.astro";
 import Icon from "../../components/Icon.astro";
 import { linkWhatsapp } from "../../lib/whatsapp.js";
 import { formatarDias, NOMES_MODALIDADE, alvoLocalDe } from "../../lib/rotulos.js";
+import { schemaSportsActivityLocation, schemaFaqPage, schemaBreadcrumb } from "../../lib/jsonld.js";
 import unidades from "../../data/unidades.json";
 import professoresTodos from "../../data/professores.json";
 import horariosTodos from "../../data/horarios.json";
+import site from "../../data/site.json";
 
 export async function getStaticPaths() {
   const ativas = unidades.filter((u) => u.ativa);
@@ -36,9 +38,30 @@ const horarioUnidade = horariosTodos.find((h) => h.unidade === unidade.slug);
 const temGradeFixa = horarioUnidade && !horarioUnidade.semGradeFixa && horarioUnidade.turmas.length > 0;
 
 const ctaWhatsapp = unidade.whatsapp ? linkWhatsapp(unidade.whatsapp, unidade.mensagemWhatsapp) : null;
+
+const faqUnidade = [
+  {
+    pergunta: "A primeira aula é gratuita?",
+    resposta: "Sim. A primeira aula experimental na Brabo Jiu-Jitsu é gratuita em todas as unidades.",
+  },
+  {
+    pergunta: "Como agendo minha aula experimental?",
+    resposta: `Chame a secretaria desta unidade no WhatsApp ${unidade.telefoneExibicao} e combine o melhor dia e horário pra você.`,
+  },
+];
+
+const jsonLd = [
+  schemaSportsActivityLocation(unidade, site, horarioUnidade),
+  schemaFaqPage(faqUnidade),
+  schemaBreadcrumb([
+    { nome: "Início", url: site.urlCanonica },
+    { nome: "Unidades", url: `${site.urlCanonica}/unidades/` },
+    { nome: unidade.nome, url: `${site.urlCanonica}/unidades/${unidade.slug}/` },
+  ]),
+];
 ---
 
-<BaseLayout titulo={titulo} descricao={descricao}>
+<BaseLayout titulo={titulo} descricao={descricao} jsonLd={jsonLd}>
   <nav class="container migalha" aria-label="Você está aqui">
     <a href="/unidades/">Unidades</a> <span aria-hidden="true">/</span> <span>{unidade.nome}</span>
   </nav>
@@ -137,17 +160,14 @@ const ctaWhatsapp = unidade.whatsapp ? linkWhatsapp(unidade.whatsapp, unidade.me
       }
 
       <h2>Perguntas frequentes</h2>
-      <details class="faq-item">
-        <summary>A primeira aula é gratuita?</summary>
-        <p>Sim. A primeira aula experimental na Brabo Jiu-Jitsu é gratuita em todas as unidades.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Como agendo minha aula experimental?</summary>
-        <p>
-          Chame a secretaria desta unidade no WhatsApp {unidade.telefoneExibicao} e combine o melhor dia e horário
-          pra você.
-        </p>
-      </details>
+      {
+        faqUnidade.map((f) => (
+          <details class="faq-item">
+            <summary>{f.pergunta}</summary>
+            <p>{f.resposta}</p>
+          </details>
+        ))
+      }
     </div>
 
     <div class="coluna-mapa">
